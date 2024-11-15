@@ -1,0 +1,13 @@
+<launch>
+	<!-- Set parameters -->
+	<param name="port" value="/dev/stibase_motor" />
+	<param name="baudrate" value="57600" />
+	<param name="id" value="2" />
+	<param name="maxRPM" value="3800" />
+	<param name="topicSafety" value="/safety" />
+	<param name="topicSub" value="/driver2_query" />
+	<param name="topicPub" value="/driver2_respond" />
+	<param name="revert" value="1" />
+	<!-- <param name="publish_tag_detections_image" type="bool" value="true" />  -->
+	<node pkg="base_pkg" type="driverControl.py" name="driverRight_node" output="screen"> </node>
+</launch>

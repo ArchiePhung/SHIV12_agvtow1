@@ -1,0 +1,9 @@
+<RCC>
+  <qresource prefix="image1">
+    <file>circle_small.png</file>
+    <file>arrow_small_up.png</file>
+    <file>arrow_small_right.png</file>
+    <file>arrow_small_left.png</file>
+    <file>arrow_small_down.png</file>
+  </qresource>
+</RCC>

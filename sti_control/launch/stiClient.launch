@@ -1,0 +1,4 @@
+<launch>
+	<node pkg="sti_control" name="stiClient" type="stiClient.py" output="screen"> </node>
+	<!-- <node pkg="sti_control" name="stiClient" type="stiClient_socket.py" output="screen"> </node> -->
+</launch>

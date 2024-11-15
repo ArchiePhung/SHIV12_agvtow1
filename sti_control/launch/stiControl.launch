@@ -1,0 +1,6 @@
+<launch>
+	<!-- <node pkg="sti_control" name="stiControl" type="stiControl_demo.py" output="screen"> </node> -->
+	<node pkg="sti_control" name="stiControl" type="stiControl.py" output="screen"> </node>
+	<node pkg="sick_lidar_localization" name="convert_encoder_lls" type="convert_encoder_for_lls.py" output="screen"> </node>
+	<!-- <node pkg="sti_control" name="stiDebug" type="stiDebug.py"> </node> -->
+</launch>

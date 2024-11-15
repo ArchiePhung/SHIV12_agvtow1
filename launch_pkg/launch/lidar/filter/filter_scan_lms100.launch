@@ -1,0 +1,8 @@
+<launch>
+    <node pkg="laser_filters" type="scan_to_scan_filter_chain"
+        name="laser_filter_lms100">
+        <rosparam command="load" file="$(find launch_pkg)/launch/lidar/filter/filter_scan_lms100.yaml" />
+        <remap from="scan" to="scan_lms100" />
+        <remap from="scan_filtered" to="scan_lms100_filtered" />
+    </node>
+</launch>

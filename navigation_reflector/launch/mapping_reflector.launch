@@ -1,0 +1,3 @@
+<launch>
+	<node pkg="navigation_reflector" name="mapping_reflector" type="mapping_reflector.py" output="screen" > </node>
+</launch>

@@ -1,0 +1,26 @@
+#if (ARDUINO >= 100)
+#include <Arduino.h>
+#else
+#include <WProgram.h>
+#endif
+
+#include <PCF8574.h>
+bool ON =  true;
+bool OFF = false;	
+PCF8574 pcf20(0x20);
+void setup(){
+	pcf20.begin();	
+	pcf20.write(5, ON);
+	pcf20.write(4, ON);
+	pinMode(27, OUTPUT);
+}
+void loop(){
+	digitalWrite(27, 1);
+	pcf20.write(6, OFF);
+	pcf20.write(7, OFF);
+	delay(500);
+	digitalWrite(27, 0);
+	pcf20.write(6, ON);
+	pcf20.write(7, ON);			
+	delay(500);
+}

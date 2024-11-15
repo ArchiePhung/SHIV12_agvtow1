@@ -1,0 +1,218 @@
+
+/*
+Name:  	STI sc821.cpp
+Author: Tran Anh Tuan   - 04/11/2020 
+Info : Mach SC (Sensor Control ): imu + ps2 
+
+*/
+
+#if (ARDUINO >= 100)
+#include <Arduino.h>
+#else
+#include <WProgram.h>
+#endif
+
+#include "ros.h"
+#include "ros/time.h"
+//header file for publishing button Ps2
+#include "sti_msgs/Ps2_msgs.h"
+#include "sti_msgs/Imu.h"
+#include <BNO055_Imu.h>
+#include "Sti_base_config.h"
+#include <PSX.h>
+#include "WiFi.h"
+
+// ---------------Playstation 2 -----------//
+PSX psx;
+PSX::PSXDATA PSXdata;
+int PSXerror;
+#define PS2_DAT 13
+#define PS2_SEL 27
+#define PS2_CMD 14
+#define PS2_CLK 32
+#define PUB_PS2_FREQUENCY 4    // hz tần số pub dữ liệu PS2 - Max: 20
+#define PUB_IMU_FREQUENCY 33
+
+unsigned long pre_imu_time = 0;
+unsigned long pre_ps2_time = 0;
+unsigned long pre_check_physical = 0;
+
+// ----- Error-----
+bool flag_requir_ESP_reset;
+bool is_command_pc = 0;    // báo bắt đầu nhận được command từ PC.
+
+
+ros::NodeHandle nh;
+sti_msgs::Ps2_msgs ps2_data;
+sti_msgs::Imu raw_imu_data;        
+
+ros::Publisher ps2_pub("ps2_status", &ps2_data);         		// Gửi thông tin nút nhấn trên Ps2
+ros::Publisher raw_imu_pub("raw_imu_bno055", &raw_imu_data);    // Gửi dữ liệu góc IMU.
+
+
+// ---------------------------------------------------------------------- SETUP
+void setup()
+{	
+	// tat wifi , blutooth
+    WiFi.mode(WIFI_OFF);
+    btStop();
+
+    nh.initNode();
+    nh.getHardware()->setBaud(57600); //57600
+
+    nh.advertise(ps2_pub);
+	nh.advertise(raw_imu_pub);
+
+	delay(50);
+    while (!nh.connected())
+    {
+        nh.spinOnce();
+    }
+	delay(50);
+
+	// --------------- PS2-------------------
+	psx.setupPins(PS2_DAT, PS2_CMD, PS2_SEL, PS2_CLK, 10);
+	psx.config(PSXMODE_ANALOG);	
+	delay(50);
+
+	// ----------------IMU-------------------
+    if (initIMU()) {
+        nh.loginfo("IMU Initialized ");
+		// error_imu = 0;
+    }else {
+		// error_imu = 1;
+		nh.logfatal("IMU failed to initialize. Check your IMU connection.");
+	}
+
+	delay(50);
+    nh.loginfo("STI vietnam - SC 8.2.1 OK ('_') ");
+
+
+	delay(1000);
+	pre_check_physical = millis() ;
+
+}
+
+
+// =======================================================
+// lấy dữ liệu PS2
+void PS2_read(void) { //checked
+	static int count_error_ps2 = 0;
+
+	PSXerror = psx.read(PSXdata);
+	// Check if the read was successful
+	if(PSXerror == PSXERROR_SUCCESS) {		
+
+		if(PSXdata.buttons & PSXBTN_LEFT) 		ps2_data.left.data = 1; 	else ps2_data.left.data = 0;
+		if(PSXdata.buttons & PSXBTN_DOWN)		ps2_data.down.data = 1; 	else ps2_data.down.data = 0;
+		if(PSXdata.buttons & PSXBTN_RIGHT) 		ps2_data.right.data = 1; 	else ps2_data.right.data = 0;
+		if(PSXdata.buttons & PSXBTN_UP)			ps2_data.up.data = 1; 		else ps2_data.up.data = 0;
+
+		if(PSXdata.buttons & PSXBTN_START) 		ps2_data.start.data = 1; 	else ps2_data.start.data = 0;
+		if(PSXdata.buttons & PSXBTN_SELECT)		ps2_data.select.data = 1;	else ps2_data.select.data = 0;
+
+		if(PSXdata.buttons & PSXBTN_SQUARE) 	ps2_data.square.data = 1; 	else ps2_data.square.data = 0;
+		if(PSXdata.buttons & PSXBTN_CROSS)		ps2_data.cross.data = 1; 	else ps2_data.cross.data = 0;
+		if(PSXdata.buttons & PSXBTN_CIRCLE) 	ps2_data.circle.data = 1; 	else ps2_data.circle.data = 0;
+		if(PSXdata.buttons & PSXBTN_TRIANGLE)	ps2_data.triangle.data = 1; else ps2_data.triangle.data = 0;
+
+		if(PSXdata.buttons & PSXBTN_R1) 		ps2_data.r1.data = 1; else ps2_data.r1.data = 0;
+		if(PSXdata.buttons & PSXBTN_R2)			ps2_data.r2.data = 1; else ps2_data.r2.data = 0;
+		if(PSXdata.buttons & PSXBTN_R3)			ps2_data.r3.data = 1; else ps2_data.r3.data = 0;			
+
+		if(PSXdata.buttons & PSXBTN_L1) 		ps2_data.l1.data = 1; else ps2_data.l1.data = 0;
+		if(PSXdata.buttons & PSXBTN_L2)			ps2_data.l2.data = 1; else ps2_data.l2.data = 0;
+		if(PSXdata.buttons & PSXBTN_L3)			ps2_data.l3.data = 1; else ps2_data.l3.data = 0;
+	} else {
+		if (count_error_ps2 > PUB_PS2_FREQUENCY){
+			// error_ps2 = 1;
+			// count_ok_ps2 = 0;
+		}else{
+			// count_error_ps2 ++;
+		}
+		// nh.logfatal("Error PS2");
+	}	  			
+}
+
+// lấy dữ liệu góc.
+void IMU_read() { //checked
+    // pass accelerometer data to imu object
+    raw_imu_data.linear_acceleration = readAccelerometer();
+    //pass gyroscope data to imu object
+    raw_imu_data.angular_velocity = readGyroscope();	
+}
+
+// pub dữ liệu PS2 - IMU - STATUS BASE.
+void pub_data() { //checked
+
+    if ((millis() - pre_imu_time) >= (1000 / PUB_IMU_FREQUENCY))
+    {
+		pre_imu_time = millis();
+		IMU_read();
+
+		raw_imu_pub.publish(&raw_imu_data);
+    }
+	
+    if ((millis() - pre_ps2_time) >= (1000 / PUB_PS2_FREQUENCY))
+    {
+		pre_ps2_time = millis();
+		PS2_read();
+		// publish PS2
+		ps2_pub.publish(&ps2_data);
+    }		
+}
+
+// Kiểm tra kết nối với PC: Nếu sau thời gian T ko nhận được lệnh -> lỗi.
+bool communication_check(){
+	if (!nh.connected()){ // Mất kết nối với ROS -> phát yêu cầu dừng động cơ -> Restart Esp.
+		delay(3000);
+        ESP.restart();
+		return 1;
+	}	
+	return 0;
+}
+
+void loop(){
+
+	// kiem tra ket noi PC.
+	communication_check() ;
+
+	// pud dữ liệu IMU + PS2 + Status cho PC.
+	pub_data();
+
+	// t = micros() - time_t;
+    static unsigned long prev_debug_time = 0;
+	if(0)
+    {
+        if ((millis() - prev_debug_time) >= (100))
+        {
+            printDebug();
+            prev_debug_time = millis();
+        }
+    }
+
+	nh.spinOnce();
+}
+
+void printDebug(){
+    char buffer[100];
+	// sprintf(buffer, "En_Trai = %ld - En_Phai = %ld", get_encoder1(), get_encoder2());
+
+    // sprintf(buffer, "En_Trai = %ld - En_Phai = %ld", motor1_encoder.read(), motor2_encoder.read());
+    //sprintf(buffer, "linear_x = %f,current_rpm1 = %d ,current_rpm2 = %d",g_req_linear_vel_x, motor1_encoder.getRPM(), motor1_encoder.getRPM());
+    //  sprintf(buffer,"req_rpm_motor1 = %d ,En_Trai = %ld,req_rpm_motor2 = %d ,En_Phai = %ld ",req_rpm_motor1,motor1_encoder.read(),req_rpm_motor2,motor2_encoder.read());
+
+	// encoder.
+   // sprintf(buffer, "M: %d | %d | %d | %d ", digitalRead(MOTOR1_ENCODER_A), digitalRead(MOTOR1_ENCODER_B), digitalRead(MOTOR2_ENCODER_A), digitalRead(MOTOR2_ENCODER_B)); // 50-70 us/ loop 
+
+	// sprintf(buffer, "PWM: %d | %d  ", pwm_motor_1, pwm_motor_2);	
+	// sprintf(buffer, "M: %d | %d  ", digitalRead(MOTOR1_ENCODER_A), digitalRead(MOTOR1_ENCODER_B)); // 50-70 us/ loop 
+	// alamp driver.
+	// sprintf(buffer, "M: %d | %d",motor_driver.read_alarm1(), motor_driver.read_alarm2());
+	// sprintf(buffer, "EMC: %d", digitalRead(EMC_PIN));
+	// sprintf(buffer, "Speed current: %f | %f", current_rpm1, current_rpm2);
+    // sprintf(buffer, "time = %ld",t); // 50-70 us/ loop 
+    nh.loginfo(buffer);
+}
+
+// rqt_plot sti_msgs/Imu/geometry_msgs/Vector3/angular_velocity/z

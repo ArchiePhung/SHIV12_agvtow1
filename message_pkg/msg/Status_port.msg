@@ -1,0 +1,9 @@
+bool lms100
+bool tim551
+bool camera
+bool board
+bool motorLeft
+bool motorRight
+bool imu
+bool magLine
+bool lidar

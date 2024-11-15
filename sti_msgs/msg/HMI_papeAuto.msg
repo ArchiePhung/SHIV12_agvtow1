@@ -1,0 +1,13 @@
+int16 p_modeRun
+int8 t_safetyHeader
+int8 t_safetyBehind
+int8 t_lidar1
+int8 t_lidar2
+int8 t_driver1
+int8 t_driver2
+int8 t_setpose
+int8 t_sys
+int8 t_MN
+int8 t_MC
+int8 t_SC
+int8 t_camera

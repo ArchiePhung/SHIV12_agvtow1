@@ -1,0 +1,14 @@
+bool b_n0
+bool b_n1
+bool b_n2
+bool b_n3
+bool b_n4
+bool b_n5
+bool b_n6
+bool b_n7
+bool b_n8
+bool b_n9
+bool b_delete
+bool b_clear
+bool b_confirm
+bool b_cancel

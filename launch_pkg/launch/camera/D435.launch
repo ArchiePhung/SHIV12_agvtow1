@@ -1,0 +1,23 @@
+<launch>
+    <arg name="serial_no_camera1"    			default="926522070077"/> 
+    <arg name="camera1"              			default="d435"/>
+    <arg name="tf_prefix_camera1"         default="$(arg camera1)"/>
+    <arg name="initial_reset"             default="true"/>	
+    <arg name="clip_distance"             default="3"/>
+    <arg name="enable_pointcloud"         default="false"/> <!-- true -->
+    <arg name="depth_fps"                 default="10"/> <!-- 90 -->
+    <arg name="color_fps"                 default="25"/> <!-- 30 -->
+    
+    <include file="$(find realsense2_camera)/launch/rs_camera.launch">
+      <arg name="align_depth"                   default="true"/>
+      <arg name="serial_no"                     value="$(arg serial_no_camera1)"/>
+      <arg name="tf_prefix"         		        value="$(arg tf_prefix_camera1)"/>
+      <arg name="initial_reset"                 value="$(arg initial_reset)"/>
+
+      <arg name="clip_distance"               value="$(arg clip_distance)"/>
+      <arg name="enable_pointcloud"           value="$(arg enable_pointcloud)"/>
+      <arg name="depth_fps"                   value="$(arg depth_fps)"/>
+
+    </include>
+
+</launch>

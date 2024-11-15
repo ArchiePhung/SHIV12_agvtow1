@@ -1,0 +1,10 @@
+string lbv_launhing
+string lbv_numberLaunch
+int32 pb_launch
+int32 lbc_main
+int32 lbc_hc
+int32 lbc_oc
+int32 lbc_load
+int32 lbc_imu
+int32 lbc_lidar
+int32 lbc_driver

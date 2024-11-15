@@ -1,0 +1,7 @@
+<launch>
+    <!--bringup-->
+    <include file="$(find robot_launch)/launch/3DLandmark/bringup_trienlam.launch"/>
+    <!--mapping-->
+    <include file="$(find robot_launch)/launch/3DLandmark/rtabmap.launch"/>
+
+</launch>

@@ -1,0 +1,8 @@
+<launch>
+
+	<!-- tf -->
+	<node pkg="tf2_ros" type="static_transform_publisher" name="base_footprintRef_to_laser_nanoScan" args="0.483 0.0 0.0 0.0 0.0 0.0 base_footprintRef nanoScan" />
+
+	<!-- <node pkg="navigation_reflector" name="median_filer_laser" type="median_filer_laser.py" output="screen" > </node> -->
+	<!-- <node pkg="navigation_reflector" name="average_filer_laser" type="average_filer_laser.py" output="screen" > </node> -->
+</launch>

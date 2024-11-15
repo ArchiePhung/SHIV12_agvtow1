@@ -1,0 +1,7 @@
+image: /home/amr1-l300/catkin_ws/src/launch_pkg/launch/map/map2d_1.pgm
+resolution: 0.050000
+origin: [-11.098006, -3.857052, 0.000000]
+negate: 0
+occupied_thresh: 0.65
+free_thresh: 0.196
+

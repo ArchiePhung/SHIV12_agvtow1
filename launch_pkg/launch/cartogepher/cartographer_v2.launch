@@ -1,0 +1,34 @@
+<!-- <launch>
+  <arg name="bag_filenames" default="/home/stivietnam/.ros/state.bag"/>
+  <arg name="pose_graph_filename" default="/home/stivietnam/.ros/state.pbstream"/>
+
+  <node name="cartographer_assets_writer" pkg="cartographer_ros" required="true"
+      type="cartographer_assets_writer" args="
+          -configuration_directory $(find cartographer_ros)/configuration_files
+          -configuration_basename assets_writer_ros_map.lua
+          -bag_filenames $(arg bag_filenames)
+          -pose_graph_filename $(arg pose_graph_filename)"
+      output="screen">
+  </node>
+</launch> -->
+
+<launch>
+
+  <arg name="load_state_filename" default="/home/stivietnam/.ros/state.pbstream" />
+
+  <node name="cartographer_node" pkg="cartographer_ros"
+      type="cartographer_node" args="
+          -configuration_directory $(find cartographer_ros)/configuration_files
+          -configuration_basename localization.lua
+          -load_state_filename $(arg load_state_filename)"
+      output="screen">
+    <remap from="/base_link" to="/base_footprint" />
+    <remap from="/scan" to="/scan_lms100" />
+  </node>
+
+  <!-- Publish Map -->
+  <node name="cartographer_occupancy_grid_node" pkg="cartographer_ros"
+      type="cartographer_occupancy_grid_node" args="-resolution 0.025" />
+  
+      
+</launch>

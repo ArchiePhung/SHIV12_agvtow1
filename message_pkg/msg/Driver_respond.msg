@@ -1,0 +1,10 @@
+int16 status
+int16 alarm_all
+int16 alarm_overload
+int16 warning
+int16 REV
+int16 FWD
+int16 speed
+string message_error
+string message_warning
+int16 process

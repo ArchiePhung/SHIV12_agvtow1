@@ -1,0 +1,4 @@
+<launch>
+	<rosparam command="load" file="$(find launch_pkg)/config/parameter.yaml" />
+	<node pkg="launch_pkg"  name="kickoff" type="kickoff.py" output="screen" > </node>
+</launch>

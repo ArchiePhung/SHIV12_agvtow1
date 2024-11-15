@@ -1,0 +1,153 @@
+
+1 . topic : /fiducial_transforms
+    fiducial_msgs/FiducialTransformArray :
+      std_msgs/Header header
+        uint32 seq
+        time stamp
+        string frame_id
+      int32 image_seq
+      fiducial_msgs/FiducialTransform[] transforms
+        int32 fiducial_id
+        geometry_msgs/Transform transform
+          geometry_msgs/Vector3 translation
+            float64 x
+            float64 y
+            float64 z
+          geometry_msgs/Quaternion rotation
+            float64 x
+            float64 y
+            float64 z
+            float64 w
+        float64 image_error
+        float64 object_error
+        float64 fiducial_area
+
+      vd : 
+        ---
+        header: 
+          seq: 2663
+          stamp: 
+            secs: 1585121590
+            nsecs: 200128162
+          frame_id: "rgb_camera_link"
+        image_seq: 2664
+        transforms: 
+          - 
+            fiducial_id: 5
+            transform: 
+              translation: 
+                x: 1.01604949847
+                y: -0.0331982275256
+                z: 1.47533245076
+              rotation: 
+                x: -0.888839584149
+                y: -0.0341050049829
+                z: -0.133468914002
+                w: -0.437020698914
+            image_error: 17402.7114178
+            object_error: 4754.33243118
+            fiducial_area: 2155.27938924
+          - 
+            fiducial_id: 40
+            transform: 
+              translation: 
+                x: -0.0869803350156
+                y: -0.102863404479
+                z: 1.60572484384
+              rotation: 
+                x: -0.999425735369
+                y: -0.00348927112604
+                z: 0.0303297852716
+                w: -0.0147013127057
+            image_error: 0.00327212852426
+            object_error: 0.000971333353908
+            fiducial_area: 1470.99885556
+        ---
+
+
+2. topic : /robot_pose
+  - type : geometry_msgs/Pose
+      geometry_msgs/Point position
+        float64 x
+        float64 y
+        float64 z
+      geometry_msgs/Quaternion orientation
+        float64 x
+        float64 y
+        float64 z
+        float64 w
+  vd :
+    ---
+    position: 
+      x: -3.10880677203
+      y: -1.38373595767
+      z: 0.0
+    orientation: 
+      x: 0.0
+      y: 0.0
+      z: 0.728693724099
+      w: 0.684839730491
+    ---
+
+3. topic : /tag_detections
+    type : apriltag_ros/AprilTagDetectionArray
+    std_msgs/Header header
+      uint32 seq
+      time stamp
+      string frame_id
+    apriltag_ros/AprilTagDetection[] detections
+      int32[] id
+      float64[] size
+      geometry_msgs/PoseWithCovarianceStamped pose
+        std_msgs/Header header
+          uint32 seq
+          time stamp
+          string frame_id
+        geometry_msgs/PoseWithCovariance pose
+          geometry_msgs/Pose pose
+            geometry_msgs/Point position
+              float64 x
+              float64 y
+              float64 z
+            geometry_msgs/Quaternion orientation
+              float64 x
+              float64 y
+              float64 z
+              float64 w
+          float64[36] covariance
+
+      vd : 
+      ---
+      header: 
+        seq: 1981
+        stamp: 
+          secs: 1585212036
+          nsecs:  17220045
+        frame_id: "rgb_camera_link"
+      detections: 
+        - 
+          id: [1]
+          size: [0.086]
+          pose: 
+            header: 
+              seq: 1981
+              stamp: 
+                secs: 1585212036
+                nsecs:  17220045
+              frame_id: "rgb_camera_link"
+            pose: 
+              pose: 
+                position: 
+                  x: 0.467974230428
+                  y: 0.0917075744817
+                  z: 0.573902890763
+                orientation: 
+                  x: 0.927072552972
+                  y: -0.0122967160501
+                  z: -0.371552443409
+                  w: -0.0483120491828
+              covariance:    
+
+4 : toa doj map -> aruco :
+map->aruco 2 : x= 2.375204 , y= 1.298210 , z= 0.410646 
+map->aruco 2 : rx= 0.491328 , ry= -0.479224 , rz= -0.506548 , rw= 0.521872

@@ -1,0 +1,14 @@
+float64 x
+float64 y
+float64 z
+float64 offset
+int32 tag
+int32 battery
+int32 status
+int32 mode
+int32 task_status
+int32 error_device
+int32 error_moving
+int32 error_perform
+int32[] listError
+int32 process

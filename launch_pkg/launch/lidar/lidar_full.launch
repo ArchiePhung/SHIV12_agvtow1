@@ -1,0 +1,27 @@
+<launch>                                                                                                                                                                                                                             
+    <!-- lms100 -->
+    <include file="$(find launch_pkg)/launch/lidar/lms100.launch" > 
+        <arg name="hostname"            value="192.168.10.10"/>  
+        <arg name="port"                default="2112" />
+        <arg name="frame_id"            value="laser_lms100"/>
+        <arg name="topic_scan"          value="/scan_lms100"/>
+    </include>
+
+    <include file="$(find launch_pkg)/launch/lidar/tim551.launch" > 
+        <arg name="hostname"            value="192.168.100.100"/>  
+        <arg name="frame_id"            value="laser_tim551"/>
+        <arg name="topic_scan"          value="/scan_tim551"/>
+    </include>
+
+    <!-- filter -->
+    <!-- <include file="$(find launch_pkg)/launch/lidar/filter/filter_scan_lms100.launch" />
+    <include file="$(find launch_pkg)/launch/lidar/filter/filter_scan_tim551.launch" /> -->
+
+    <!-- multi_lidar -->
+    <include file="$(find launch_pkg)/launch/lidar/laserscan_multi_merger.launch" > 
+        <arg name="destination_frame"   value="base_footprint"/>
+        <arg name="scan_out"            value="/scan"/>
+        <arg name="scan1_in"            value="/scan_lms100" />
+        <arg name="scan2_in"            value="/scan_tim551" />
+    </include>
+</launch>

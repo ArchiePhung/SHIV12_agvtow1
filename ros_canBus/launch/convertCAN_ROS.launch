@@ -1,0 +1,3 @@
+<launch>
+	<node pkg="ros_canBus" type="convert_ROS_CAN.py" name="convert_CAN_node" output="screen"> </node>
+</launch>

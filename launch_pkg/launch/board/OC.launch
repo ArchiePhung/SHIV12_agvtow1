@@ -1,0 +1,9 @@
+<launch>
+    <node pkg="sti_module" name="checkMC" type="checkMC.py"/>
+    
+    <node pkg="rosserial_python" name="OC82_node" type="serial_node.py" output="screen">
+        <param name="port" value="/dev/stibase_oc82" />
+        <param name="baud" value="57600" />
+    </node>
+
+</launch>

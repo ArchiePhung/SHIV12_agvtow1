@@ -1,0 +1,3 @@
+uint8 statusSend
+uint8 statusReceived
+uint8 isBusy

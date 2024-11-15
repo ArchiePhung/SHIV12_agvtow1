@@ -1,0 +1,486 @@
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /usr/bin/gcc-8 
+Build flags: 
+Id flags:  
+
+The output was:
+1
+/usr/bin/ld: final link failed: Operation not supported
+collect2: error: ld returned 1 exit status
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /usr/bin/gcc-8 
+Build flags: 
+Id flags: -c 
+
+The output was:
+1
+/tmp/ccnkYArN.s: Assembler messages:
+/tmp/ccnkYArN.s: Fatal error: can't write 145 bytes to section .text of CMakeCCompilerId.o: 'Operation not supported'
+/tmp/ccnkYArN.s: Fatal error: can't close CMakeCCompilerId.o: Operation not supported
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /usr/bin/gcc-8 
+Build flags: 
+Id flags: -Aa 
+
+The output was:
+1
+<command-line>: error: missing '(' after predicate
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /usr/bin/gcc-8 
+Build flags: 
+Id flags: -D__CLASSIC_C__ 
+
+The output was:
+1
+/usr/bin/ld: final link failed: Operation not supported
+collect2: error: ld returned 1 exit status
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /usr/bin/gcc-8 
+Build flags: 
+Id flags: --target=arm-arm-none-eabi;-mcpu=cortex-m3 
+
+The output was:
+1
+gcc-8: warning: ‘-mcpu=’ is deprecated; use ‘-mtune=’ or ‘-march=’ instead
+gcc-8: error: unrecognized command line option ‘--target=arm-arm-none-eabi’
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /usr/bin/gcc-8 
+Build flags: 
+Id flags:  
+
+The output was:
+1
+/usr/bin/ld: final link failed: Operation not supported
+collect2: error: ld returned 1 exit status
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /usr/bin/gcc-8 
+Build flags: 
+Id flags: -c 
+
+The output was:
+1
+/tmp/cc4oKtxt.s: Assembler messages:
+/tmp/cc4oKtxt.s: Fatal error: can't write 145 bytes to section .text of CMakeCCompilerId.o: 'Operation not supported'
+/tmp/cc4oKtxt.s: Fatal error: can't close CMakeCCompilerId.o: Operation not supported
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /usr/bin/gcc-8 
+Build flags: 
+Id flags: -Aa 
+
+The output was:
+1
+<command-line>: error: missing '(' after predicate
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /usr/bin/gcc-8 
+Build flags: 
+Id flags: -D__CLASSIC_C__ 
+
+The output was:
+1
+/usr/bin/ld: final link failed: Operation not supported
+collect2: error: ld returned 1 exit status
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /usr/bin/gcc-8 
+Build flags: 
+Id flags: --target=arm-arm-none-eabi;-mcpu=cortex-m3 
+
+The output was:
+1
+gcc-8: warning: ‘-mcpu=’ is deprecated; use ‘-mtune=’ or ‘-march=’ instead
+gcc-8: error: unrecognized command line option ‘--target=arm-arm-none-eabi’
+
+
+Checking whether the C compiler is IAR using "" did not match "IAR .+ Compiler":
+gcc-8: fatal error: no input files
+compilation terminated.
+Checking whether the C compiler is IAR using "" did not match "IAR .+ Compiler":
+gcc-8: fatal error: no input files
+compilation terminated.
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /usr/bin/c++ 
+Build flags: 
+Id flags:  
+
+The output was:
+1
+/usr/bin/ld: final link failed: Operation not supported
+collect2: error: ld returned 1 exit status
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /usr/bin/c++ 
+Build flags: 
+Id flags: -c 
+
+The output was:
+1
+/tmp/ccpDV6zw.s: Assembler messages:
+/tmp/ccpDV6zw.s: Fatal error: can't write 121 bytes to section .text of CMakeCXXCompilerId.o: 'Operation not supported'
+/tmp/ccpDV6zw.s: Fatal error: can't close CMakeCXXCompilerId.o: Operation not supported
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /usr/bin/c++ 
+Build flags: 
+Id flags: --c++ 
+
+The output was:
+1
+c++: error: unrecognized command line option ‘--c++’
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /usr/bin/c++ 
+Build flags: 
+Id flags: --ec++ 
+
+The output was:
+1
+c++: error: unrecognized command line option ‘--ec++’; did you mean ‘-Weffc++’?
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /usr/bin/c++ 
+Build flags: 
+Id flags: --target=arm-arm-none-eabi;-mcpu=cortex-m3 
+
+The output was:
+1
+c++: warning: ‘-mcpu=’ is deprecated; use ‘-mtune=’ or ‘-march=’ instead
+c++: error: unrecognized command line option ‘--target=arm-arm-none-eabi’
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /usr/bin/c++ 
+Build flags: 
+Id flags:  
+
+The output was:
+1
+/usr/bin/ld: final link failed: Operation not supported
+collect2: error: ld returned 1 exit status
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /usr/bin/c++ 
+Build flags: 
+Id flags: -c 
+
+The output was:
+1
+/tmp/ccfiPDmo.s: Assembler messages:
+/tmp/ccfiPDmo.s: Fatal error: can't write 121 bytes to section .text of CMakeCXXCompilerId.o: 'Operation not supported'
+/tmp/ccfiPDmo.s: Fatal error: can't close CMakeCXXCompilerId.o: Operation not supported
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /usr/bin/c++ 
+Build flags: 
+Id flags: --c++ 
+
+The output was:
+1
+c++: error: unrecognized command line option ‘--c++’
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /usr/bin/c++ 
+Build flags: 
+Id flags: --ec++ 
+
+The output was:
+1
+c++: error: unrecognized command line option ‘--ec++’; did you mean ‘-Weffc++’?
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /usr/bin/c++ 
+Build flags: 
+Id flags: --target=arm-arm-none-eabi;-mcpu=cortex-m3 
+
+The output was:
+1
+c++: warning: ‘-mcpu=’ is deprecated; use ‘-mtune=’ or ‘-march=’ instead
+c++: error: unrecognized command line option ‘--target=arm-arm-none-eabi’
+
+
+Checking whether the CXX compiler is IAR using "" did not match "IAR .+ Compiler":
+c++: fatal error: no input files
+compilation terminated.
+Checking whether the CXX compiler is IAR using "" did not match "IAR .+ Compiler":
+c++: fatal error: no input files
+compilation terminated.
+Determining if the C compiler works failed with the following output:
+Change Dir: /run/user/1000/gvfs/smb-share:server=172.21.81.115,share=catkin_towing1/src/navigation_reflector/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_21e07 && [1/2] Building C object CMakeFiles/cmTC_21e07.dir/testCCompiler.c.o
+FAILED: CMakeFiles/cmTC_21e07.dir/testCCompiler.c.o 
+/usr/bin/gcc-8    -o CMakeFiles/cmTC_21e07.dir/testCCompiler.c.o   -c testCCompiler.c
+/tmp/ccp13TBe.s: Assembler messages:
+/tmp/ccp13TBe.s: Fatal error: can't write 23 bytes to section .text of CMakeFiles/cmTC_21e07.dir/testCCompiler.c.o: 'Operation not supported'
+/tmp/ccp13TBe.s: Fatal error: can't close CMakeFiles/cmTC_21e07.dir/testCCompiler.c.o: Operation not supported
+ninja: build stopped: subcommand failed.
+
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /usr/bin/gcc-8 
+Build flags: 
+Id flags:  
+
+The output was:
+1
+/usr/bin/ld: final link failed: Operation not supported
+collect2: error: ld returned 1 exit status
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /usr/bin/gcc-8 
+Build flags: 
+Id flags: -c 
+
+The output was:
+1
+/tmp/ccgL73F8.s: Assembler messages:
+/tmp/ccgL73F8.s: Fatal error: can't write 145 bytes to section .text of CMakeCCompilerId.o: 'Operation not supported'
+/tmp/ccgL73F8.s: Fatal error: can't close CMakeCCompilerId.o: Operation not supported
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /usr/bin/gcc-8 
+Build flags: 
+Id flags: -Aa 
+
+The output was:
+1
+<command-line>: error: missing '(' after predicate
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /usr/bin/gcc-8 
+Build flags: 
+Id flags: -D__CLASSIC_C__ 
+
+The output was:
+1
+/usr/bin/ld: final link failed: Operation not supported
+collect2: error: ld returned 1 exit status
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /usr/bin/gcc-8 
+Build flags: 
+Id flags: --target=arm-arm-none-eabi;-mcpu=cortex-m3 
+
+The output was:
+1
+gcc-8: warning: ‘-mcpu=’ is deprecated; use ‘-mtune=’ or ‘-march=’ instead
+gcc-8: error: unrecognized command line option ‘--target=arm-arm-none-eabi’
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /usr/bin/gcc-8 
+Build flags: 
+Id flags:  
+
+The output was:
+1
+/usr/bin/ld: final link failed: Operation not supported
+collect2: error: ld returned 1 exit status
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /usr/bin/gcc-8 
+Build flags: 
+Id flags: -c 
+
+The output was:
+1
+/tmp/ccKTx3hk.s: Assembler messages:
+/tmp/ccKTx3hk.s: Fatal error: can't write 145 bytes to section .text of CMakeCCompilerId.o: 'Operation not supported'
+/tmp/ccKTx3hk.s: Fatal error: can't close CMakeCCompilerId.o: Operation not supported
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /usr/bin/gcc-8 
+Build flags: 
+Id flags: -Aa 
+
+The output was:
+1
+<command-line>: error: missing '(' after predicate
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /usr/bin/gcc-8 
+Build flags: 
+Id flags: -D__CLASSIC_C__ 
+
+The output was:
+1
+/usr/bin/ld: final link failed: Operation not supported
+collect2: error: ld returned 1 exit status
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /usr/bin/gcc-8 
+Build flags: 
+Id flags: --target=arm-arm-none-eabi;-mcpu=cortex-m3 
+
+The output was:
+1
+gcc-8: warning: ‘-mcpu=’ is deprecated; use ‘-mtune=’ or ‘-march=’ instead
+gcc-8: error: unrecognized command line option ‘--target=arm-arm-none-eabi’
+
+
+Checking whether the C compiler is IAR using "" did not match "IAR .+ Compiler":
+gcc-8: fatal error: no input files
+compilation terminated.
+Checking whether the C compiler is IAR using "" did not match "IAR .+ Compiler":
+gcc-8: fatal error: no input files
+compilation terminated.
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /usr/bin/c++ 
+Build flags: 
+Id flags:  
+
+The output was:
+1
+/usr/bin/ld: final link failed: Operation not supported
+collect2: error: ld returned 1 exit status
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /usr/bin/c++ 
+Build flags: 
+Id flags: -c 
+
+The output was:
+1
+/tmp/ccbxDnNt.s: Assembler messages:
+/tmp/ccbxDnNt.s: Fatal error: can't write 121 bytes to section .text of CMakeCXXCompilerId.o: 'Operation not supported'
+/tmp/ccbxDnNt.s: Fatal error: can't close CMakeCXXCompilerId.o: Operation not supported
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /usr/bin/c++ 
+Build flags: 
+Id flags: --c++ 
+
+The output was:
+1
+c++: error: unrecognized command line option ‘--c++’
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /usr/bin/c++ 
+Build flags: 
+Id flags: --ec++ 
+
+The output was:
+1
+c++: error: unrecognized command line option ‘--ec++’; did you mean ‘-Weffc++’?
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /usr/bin/c++ 
+Build flags: 
+Id flags: --target=arm-arm-none-eabi;-mcpu=cortex-m3 
+
+The output was:
+1
+c++: warning: ‘-mcpu=’ is deprecated; use ‘-mtune=’ or ‘-march=’ instead
+c++: error: unrecognized command line option ‘--target=arm-arm-none-eabi’
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /usr/bin/c++ 
+Build flags: 
+Id flags:  
+
+The output was:
+1
+/usr/bin/ld: final link failed: Operation not supported
+collect2: error: ld returned 1 exit status
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /usr/bin/c++ 
+Build flags: 
+Id flags: -c 
+
+The output was:
+1
+/tmp/ccjB8LFs.s: Assembler messages:
+/tmp/ccjB8LFs.s: Fatal error: can't write 121 bytes to section .text of CMakeCXXCompilerId.o: 'Operation not supported'
+/tmp/ccjB8LFs.s: Fatal error: can't close CMakeCXXCompilerId.o: Operation not supported
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /usr/bin/c++ 
+Build flags: 
+Id flags: --c++ 
+
+The output was:
+1
+c++: error: unrecognized command line option ‘--c++’
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /usr/bin/c++ 
+Build flags: 
+Id flags: --ec++ 
+
+The output was:
+1
+c++: error: unrecognized command line option ‘--ec++’; did you mean ‘-Weffc++’?
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /usr/bin/c++ 
+Build flags: 
+Id flags: --target=arm-arm-none-eabi;-mcpu=cortex-m3 
+
+The output was:
+1
+c++: warning: ‘-mcpu=’ is deprecated; use ‘-mtune=’ or ‘-march=’ instead
+c++: error: unrecognized command line option ‘--target=arm-arm-none-eabi’
+
+
+Checking whether the CXX compiler is IAR using "" did not match "IAR .+ Compiler":
+c++: fatal error: no input files
+compilation terminated.
+Checking whether the CXX compiler is IAR using "" did not match "IAR .+ Compiler":
+c++: fatal error: no input files
+compilation terminated.
+Determining if the C compiler works failed with the following output:
+Change Dir: /run/user/1000/gvfs/smb-share:server=172.21.81.115,share=catkin_towing1/src/navigation_reflector/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_0555e && [1/2] Building C object CMakeFiles/cmTC_0555e.dir/testCCompiler.c.o
+FAILED: CMakeFiles/cmTC_0555e.dir/testCCompiler.c.o 
+/usr/bin/gcc-8    -o CMakeFiles/cmTC_0555e.dir/testCCompiler.c.o   -c testCCompiler.c
+/tmp/ccRqZAKv.s: Assembler messages:
+/tmp/ccRqZAKv.s: Fatal error: can't write 23 bytes to section .text of CMakeFiles/cmTC_0555e.dir/testCCompiler.c.o: 'Operation not supported'
+/tmp/ccRqZAKv.s: Fatal error: can't close CMakeFiles/cmTC_0555e.dir/testCCompiler.c.o: Operation not supported
+ninja: build stopped: subcommand failed.
+
+
+

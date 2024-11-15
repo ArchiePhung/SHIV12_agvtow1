@@ -1,0 +1,14 @@
+bool b_clearError
+bool b_modeBH
+bool b_modeAuto
+bool b_message
+bool b_detail
+bool b_back
+bool b_lifting
+bool b_lower
+bool b_speakerOn
+bool b_speakerOff
+bool b_chargerOn
+bool b_chargerOff
+bool b_setpose
+bool b_cancel

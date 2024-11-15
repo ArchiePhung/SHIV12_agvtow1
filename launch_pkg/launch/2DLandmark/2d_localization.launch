@@ -1,0 +1,35 @@
+<launch>
+
+	 <!-- _________________LOCALIZATION__________________  -->
+
+    <include file="$(find robot_launch)/launch/2DLandmark/2d_rtabmap_core_v2.launch">
+      
+        <!-- scan 2D, 3D -->
+        <arg name="subscribe_depth"    value="false"/>
+        <arg name="subscribe_rgbd"     value="false"/>
+        <arg name="subscribe_rgb"      value="false"/>
+        <arg name="subscribe_scan"     value="true"/>
+        <arg name="scan_topic"         value="/scan"/>
+
+        <!-- Choose visualization -->
+        <arg name="rtabmapviz"         value="false"/>
+        <arg name="rviz"               value="false"/>
+        <arg name="tag_MarkerDetection" value="false"/>
+
+        <!-- Localization-only mode -->
+        <arg name="localization"       value="true"/>
+        <arg name="rtabmap_args"       value=""/>
+
+        <!-- Corresponding config files -->
+        <arg name="frame_id"           value="base_footprint"/>
+        <arg name="map_frame_id"       value="map"/>
+        
+        <arg name="database_path"      value="~/.ros/rtabmap.db"/>
+        <arg name="queue_size"         value="200"/>
+        <arg name="publish_tf_map"     value="true"/>
+        
+        <arg name="visual_odometry"    value="false"/> 
+        <arg name="odom_topic"         value="/odom"/> <!-- de : value="odom" -> error -->
+
+    </include>
+</launch>

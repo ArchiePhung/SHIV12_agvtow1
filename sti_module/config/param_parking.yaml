@@ -1,0 +1,21 @@
+#update : 25/12/2020 - TranAnhTuan
+# dolech_x_CamVsRObot : -0.027 # m : lech Phai
+dolech_x_CamVsRObot : 0.0 # m : lech Trai
+tolerance_max : 0.05
+tolerance_min : 0.02
+distance_max  : 2
+distance_min  : 0.02
+x_robot       : 1.045 # met
+kc_tag_robot_setup : 1.0 # khoang cach setup TAG -> dau robot 
+
+checkke : True # tinh nang check ke 
+kc_checkke : 0.5 # kc vua di vao vua check ke , qua kc nay k check ke nua
+
+# he so kalman
+kalman_r : 0.1 #0.1
+kalman_p : 1.0 #1.0
+kalman_q : 0.1 #0.5
+
+# kalman_r : 0.5
+# kalman_p : 1.0
+# kalman_q : 0.1

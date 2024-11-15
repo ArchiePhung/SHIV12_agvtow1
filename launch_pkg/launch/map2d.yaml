@@ -1,0 +1,9 @@
+free_thresh: 0.196
+image: /home/amr1-l300/catkin_ws/src/launch_pkg/map/mapMerger14_22_4_10.pgm
+negate: 0
+occupied_thresh: 0.65
+origin:
+- -9.398955
+- -3.053319
+- 0.0
+resolution: 0.05

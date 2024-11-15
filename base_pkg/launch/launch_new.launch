@@ -1,0 +1,9 @@
+<launch>
+	<!-- Set parameters -->
+	<param name="timeCheck_connect" value="57600" />
+	<param name="timeWait_connect" value="/driver2_query" />
+	<param name="topicCheck" value="/driver2_respond" />
+	<param name="file_launch" value="1" />
+
+	<node pkg="base_pkg" type="reconnect_driver.py" name="reconnect_driver" output="screen"> </node>
+</launch>

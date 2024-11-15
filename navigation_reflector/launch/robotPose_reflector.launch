@@ -1,0 +1,4 @@
+<launch>
+	<!-- <node pkg="tf2_ros" type="static_transform_publisher" name="base_lmn100_linker" args="-0.440 0.071 0. -0.785 0 0 laser_lms100 frame_robot" /> -->
+	<node pkg="navigation_reflector" name="robotPose_reflector" type="robotPose_reflector.py" output="screen" > </node>
+</launch>

@@ -1,0 +1,3 @@
+<launch>
+	<rosparam command="load"  file="$(find launch_pkg)/config/parameter_scan.yaml" />
+</launch>

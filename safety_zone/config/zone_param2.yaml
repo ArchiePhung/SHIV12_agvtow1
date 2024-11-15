@@ -1,0 +1,33 @@
+dx_robot : 0.0 
+dy_robot : 0.0
+
+# AHEAD ( tinh tu head robot)
+dx1_head0 : 0.8
+dx2_head0 : 1.5 
+dx3_head0 : 2.0 
+dy_head0  : 0.43
+
+# AHEAD ( tinh tu head robot)
+dx1_head1 : 0.5
+dx2_head1 : 0.4 
+dx3_head1 : 0.5 
+dy_head1  : 0.2
+
+# AHEAD ( tinh tu head robot)
+dx1_head2 : 1.0
+dx2_head2 : 1.5 
+dx3_head2 : 2. 
+dy_head2  : 0.35
+
+
+# BEHIND ( tinh tu behind robot)
+dx1_behind : 0.05 # zone 1 0.2
+dx2_behind : 0.2 # zone 2  0.6
+dx3_behind : 0.4 # zone 3  1.2
+
+# phan giai goc quet
+resolution_angle : 1
+
+zone_circle_robot: 0.75
+dy_circle: 0.6 
+

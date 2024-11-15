@@ -1,0 +1,18 @@
+<launch>
+    <!--bringup-->
+        <include file="$(find robot_launch)/launch/2DLandmark/2d_bringup_u300.launch"/>
+
+<!--navi Amcl -->
+        <include file="$(find robot_launch)/launch/2DLandmark/map_server.launch" />
+        <include file="$(find robot_launch)/launch/2DLandmark/amcl_v2.launch" />
+
+<!--navi Rtabmap -->
+<!-- <include file="$(find robot_launch)/launch/2DLandmark/2d_localization.launch" />  -->
+        <include file="$(find robot_launch)/launch/move_base/moveBase_default/move_base_sti.launch" /> 
+    
+<!--pose-->
+        <!-- <include  file="$(find robot_pose_publisher)/launch/robot_pose.launch"/> -->
+        
+    
+</launch>
+

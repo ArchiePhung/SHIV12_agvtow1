@@ -1,0 +1,5 @@
+<launch>
+	<!-- Set parameters-->
+	<!-- <param name="revert" value="0" /> -->
+	<node pkg="app_ros" type="data_synthesis_vs2.py" name="dataSynthesis_node" output="screen"> </node>
+</launch>

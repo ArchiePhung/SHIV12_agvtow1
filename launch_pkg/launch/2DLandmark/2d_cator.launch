@@ -1,0 +1,45 @@
+<launch>
+
+	<!-- SENSOR -->
+        
+
+        <!-- camera T265 + D435-->
+        <!-- <rosparam> /t265/realsense2_camera/enable_pose_jumping: false </rosparam>
+        <include file="$(find robot_launch)/launch/camera/t265_d435.launch" /> -->
+
+        <!-- camera T265 + Azure-->
+        <!-- <rosparam> /t265/realsense2_camera/enable_pose_jumping: false </rosparam>
+        <include file="$(find robot_launch)/launch/camera/t265.launch" /> -->
+        <!-- <include file="$(find robot_launch)/launch/camera/azure.launch" /> -->
+        <include file="$(find robot_launch)/launch/camera/D435.launch" />
+
+        <!-- lidar tim551 + rplidar a2 -->
+        <include file="$(find robot_launch)/launch/lidar/tim551_rplidara2.launch" />
+    
+        <!-- encoder -->
+        <include file="$(find robot_launch)/launch/move_base/base.launch" />
+
+        <!-- imu -->
+        <include file="$(find robot_launch)/launch/imu/imu_bno055.launch" />
+
+        <!-- ps2 -->
+		<node pkg="sti_control" type="sti_interactiveUser_v1.py" name="sti_interactiveUser_v1" output="screen" />
+
+    <!-- tf_config trienlam -->
+        <include file="$(find robot_launch)/launch/config/tf_config_trienlam.launch" />
+        
+   
+    <!-- apriltag -->
+        <include file="$(find robot_launch)/launch/aruco/apriltag_d435.launch" />
+    
+    <!-- detector leg -->
+        <include file="$(find robot_launch)/launch/detector/detec_leg.launch" />
+
+    <!-- modubus -->
+    <!-- <node pkg="sti_module" name="modbus_control" type="modbus_control_v2.py" />  -->
+            <!-- output="screen"/>  -->
+
+
+
+     
+</launch>

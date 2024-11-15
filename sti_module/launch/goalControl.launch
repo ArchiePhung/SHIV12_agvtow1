@@ -1,0 +1,11 @@
+<launch>
+      <!-- nhan Goal va dieu huong -->
+      <arg name="node_namespace" default="goal_controlNav_v9" />
+      <rosparam command="load" 
+                file="$(find sti_module)/config/param_goalControl.yaml" 
+                ns="$(arg node_namespace)"   />
+      <node pkg="sti_module" 
+            name="$(arg node_namespace)" 
+            type="$(arg node_namespace).py"
+            output="screen"/>
+</launch>

@@ -1,0 +1,16 @@
+int16 n_locatePoint
+int16 n_locateDir
+int16 n_taskPoint
+int16 n_taskDir
+int16 n_taskBefor
+int16 n_taskAfter
+int16 n_lineTr
+int16 n_lineSa
+int16 n_aBit
+int16 n_ssLf
+int16 n_requirSpeed
+int16 n_cardByte0
+int16 n_cardByte1
+int16 n_cardByte2
+int16 n_cardByte3
+int16 n_cardByte4

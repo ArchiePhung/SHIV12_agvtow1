@@ -1,0 +1,10 @@
+<launch>
+	<node pkg="sti_control" name="simRobot8" type="robot8.py"> </node>
+	<node pkg="sti_control" name="simRobot9" type="robot9.py"> </node>
+	<node pkg="sti_control" name="simRobot10" type="robot10.py"> </node>
+	<node pkg="sti_control" name="simRobot11" type="robot11.py"> </node>
+	<node pkg="sti_control" name="simRobot12" type="robot12.py"> </node>
+	<node pkg="sti_control" name="simRobot13" type="robot13.py"> </node>
+	<node pkg="sti_control" name="simRobot14" type="robot14.py"> </node>
+	<node pkg="sti_control" name="simRobot15" type="robot15.py"> </node>
+</launch>

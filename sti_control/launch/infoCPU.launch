@@ -1,0 +1,3 @@
+<launch>
+	<node pkg="sti_control" name="checkCpu" type="checkCpu.py"> </node>
+</launch>

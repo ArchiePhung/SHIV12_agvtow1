@@ -1,0 +1,9 @@
+<launch>
+	<node pkg="sti_control" name="simRobot1" type="robot1.py"> </node>
+	<node pkg="sti_control" name="simRobot2" type="robot2.py"> </node>
+	<node pkg="sti_control" name="simRobot3" type="robot3.py"> </node>
+	<node pkg="sti_control" name="simRobot4" type="robot4.py"> </node>
+	<node pkg="sti_control" name="simRobot5" type="robot5.py"> </node>
+	<node pkg="sti_control" name="simRobot6" type="robot6.py"> </node>
+	<node pkg="sti_control" name="simRobot7" type="robot7.py"> </node>
+</launch>

@@ -1,0 +1,3 @@
+<launch>
+	<node pkg="sti_control" name="controlMusic" type="controlMusic.py" output="screen"> </node>		
+</launch>

@@ -1,0 +1,3 @@
+<launch>
+	<node pkg="sti_control" name="lineMagnetic" type="lineMagnetic.py" output="screen"> </node>	
+</launch>

@@ -1,0 +1,11 @@
+std_msgs/Header header
+int32 status
+int32 warning
+int32 modeRun
+geometry_msgs/Pose poseBefore
+geometry_msgs/Pose poseTarget
+float64 offset
+float64 ss_x
+float64 ss_y
+float64 ss_a
+string message

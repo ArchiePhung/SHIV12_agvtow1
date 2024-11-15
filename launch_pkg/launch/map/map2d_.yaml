@@ -1,0 +1,7 @@
+image: /home/stivietnam/catkin_ws/src/launch_pkg/launch/map/map2d_.pgm
+resolution: 0.050000
+origin: [-19.564655, -5.305274, 0.000000]
+negate: 0
+occupied_thresh: 0.65
+free_thresh: 0.196
+

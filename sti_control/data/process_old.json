@@ -1,0 +1,255 @@
+{
+    "id_wait": [
+        {
+            "id": 10,
+            "time_wait": 10
+        },
+        {
+            "id": 15,
+            "time_wait": 10
+        },
+        {
+            "id": 9,
+            "time_wait": 10
+        }
+    ],
+    "process": [
+        {
+            "enable": 1,
+            "target_id": 10,
+            "target_x": 0.789,
+            "target_y": 4.34,
+            "target_z": 0.0,
+            "path_info": [
+                {
+                    "pathID": 29,
+                    "typePath": 3,
+                    "direction": 1,
+                    "pointOne": {
+                        "x": -1.753,
+                        "y": 1.266
+                    },
+                    "pointSecond": {
+                        "x": -0.52,
+                        "y": 0
+                    },
+                    "pointMid": {
+                        "x": -1.72,
+                        "y": 0.2
+                    },
+                    "velocity": 20,
+                    "numberPts": 150,
+                    "movableZone": 1.2,
+                    "fieldSafety": 0
+                },
+                {
+                    "pathID": 30,
+                    "typePath": 3,
+                    "direction": 1,
+                    "pointOne": {
+                        "x": -0.52,
+                        "y": 0
+                    },
+                    "pointSecond": {
+                        "x": 0.789,
+                        "y": 1.266
+                    },
+                    "pointMid": {
+                        "x": 0.7,
+                        "y": 0.06
+                    },
+                    "velocity": 20,
+                    "numberPts": 150,
+                    "movableZone": 1.2,
+                    "fieldSafety": 0
+                },
+                {
+                    "pathID": 22,
+                    "typePath": 1,
+                    "direction": 1,
+                    "pointOne": {
+                        "x": 0.789,
+                        "y": 1.266
+                    },
+                    "pointSecond": {
+                        "x": 0.789,
+                        "y": 4.34
+                    },
+                    "pointMid": {
+                        "x": 0.7,
+                        "y": 0.06
+                    },
+                    "velocity": 40,
+                    "numberPts": 150,
+                    "movableZone": 1.2,
+                    "fieldSafety": 0
+                }
+            ]
+        },
+        {
+            "enable": 1,
+            "target_id": 15,
+            "target_x": -0.552,
+            "target_y": 8,
+            "target_z": 0.0,
+            "path_info": [
+                {
+                    "pathID": 26,
+                    "typePath": 3,
+                    "direction": 1,
+                    "pointOne": {
+                        "x": 0.789,
+                        "y": 4.34
+                    },
+                    "pointSecond": {
+                        "x": 1.989,
+                        "y": 5.44
+                    },
+                    "pointMid": {
+                        "x": 0.74,
+                        "y": 5.4
+                    },
+                    "velocity": 20,
+                    "numberPts": 150,
+                    "movableZone": 1.2,
+                    "fieldSafety": 0
+                },
+                {
+                    "pathID": 23,
+                    "typePath": 1,
+                    "direction": 1,
+                    "pointOne": {
+                        "x": 1.989,
+                        "y": 5.44
+                    },
+                    "pointSecond": {
+                        "x": 8.6,
+                        "y": 5.44
+                    },
+                    "pointMid": {
+                        "x": 0.74,
+                        "y": 5.4
+                    },
+                    "velocity": 50,
+                    "numberPts": 150,
+                    "movableZone": 1.2,
+                    "fieldSafety": 0
+                },
+                {
+                    "pathID": 31,
+                    "typePath": 3,
+                    "direction": 1,
+                    "pointOne": {
+                        "x": 8.6,
+                        "y": 5.44
+                    },
+                    "pointSecond": {
+                        "x": 9.88,
+                        "y": 6.72
+                    },
+                    "pointMid": {
+                        "x": 9.76,
+                        "y": 5.72
+                    },
+                    "velocity": 20,
+                    "numberPts": 150,
+                    "movableZone": 1.2,
+                    "fieldSafety": 0
+                },
+                {
+                    "pathID": 32,
+                    "typePath": 3,
+                    "direction": 1,
+                    "pointOne": {
+                        "x": 9.88,
+                        "y": 6.72
+                    },
+                    "pointSecond": {
+                        "x": 8.6,
+                        "y": 8
+                    },
+                    "pointMid": {
+                        "x": 9.88,
+                        "y": 7.94
+                    },
+                    "velocity": 20,
+                    "numberPts": 150,
+                    "movableZone": 1.2,
+                    "fieldSafety": 0
+                },
+                {
+                    "pathID": 24,
+                    "typePath": 1,
+                    "direction": 1,
+                    "pointOne": {
+                        "x": 8.6,
+                        "y": 8
+                    },
+                    "pointSecond": {
+                        "x": -0.552,
+                        "y": 8
+                    },
+                    "pointMid": {
+                        "x": 9.88,
+                        "y": 7.94
+                    },
+                    "velocity": 80,
+                    "numberPts": 150,
+                    "movableZone": 1.2,
+                    "fieldSafety": 0
+                }
+            ]
+        },
+        {
+            "enable": 1,
+            "target_id": 9,
+            "target_x": -1.753,
+            "target_y": 1.266,
+            "target_z": 0.0,
+            "path_info": [
+                {
+                    "pathID": 25,
+                    "typePath": 3,
+                    "direction": 1,
+                    "pointOne": {
+                        "x": -0.552,
+                        "y": 8
+                    },
+                    "pointSecond": {
+                        "x": -1.752,
+                        "y": 6.8
+                    },
+                    "pointMid": {
+                        "x": -1.8,
+                        "y": 7.88
+                    },
+                    "velocity": 20,
+                    "numberPts": 150,
+                    "movableZone": 1.2,
+                    "fieldSafety": 0
+                },
+                {
+                    "pathID": 21,
+                    "typePath": 1,
+                    "direction": 1,
+                    "pointOne": {
+                        "x": -1.752,
+                        "y": 6.8
+                    },
+                    "pointSecond": {
+                        "x": -1.753,
+                        "y": 1.266
+                    },
+                    "pointMid": {
+                        "x": -1.8,
+                        "y": 7.88
+                    },
+                    "velocity": 50,
+                    "numberPts": 150,
+                    "movableZone": 1.2,
+                    "fieldSafety": 0
+                }
+            ]
+        }
+    ]
+}

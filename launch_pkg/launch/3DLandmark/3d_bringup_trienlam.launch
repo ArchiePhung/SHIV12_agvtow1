@@ -1,0 +1,45 @@
+<launch>
+
+	<!-- SENSOR -->
+        <!-- camera T265 + D435-->
+        <!-- <rosparam> /t265/realsense2_camera/enable_pose_jumping: false </rosparam>
+        <include file="$(find robot_launch)/launch/camera/t265_d435.launch" /> -->
+
+        <!-- camera T265 + Azure-->
+        <rosparam> /t265/realsense2_camera/enable_pose_jumping: false </rosparam>
+        <include file="$(find robot_launch)/launch/camera/t265.launch" />
+        <include file="$(find robot_launch)/launch/camera/azure.launch" />
+
+        <!-- lidar tim551 + rplidar a2 -->
+        <!-- <include file="$(find robot_launch)/launch/lidar/tim551_rplidara2.launch" /> -->
+    
+        <!-- encoder -->
+        <include file="$(find robot_launch)/launch/move_base/base.launch" />
+
+    <!-- tf_config trienlam -->
+        <include file="$(find robot_launch)/launch/config/tf_config_trienlam.launch" />
+        
+    <!-- ODOM -->
+        <!-- encoder -->
+        <node pkg="stibot" name="odometry_encoder" type="sti_base_node"/>
+
+        <!-- T265 tracking -->
+        <node pkg="robot_setup_tf_tutorial" name="robot_tf_odom_v9" type="odom_v9" output="screen"/>
+
+        <!-- hector -->
+        <!-- <include file="$(find meiko_v3_launch)/launch/lidar/hector_mapping/hector_odom.launch"/>
+        <node pkg="robot_setup_tf_tutorial" name="conver_lidar" type="odom_lidar" output="screen"/>  -->
+
+        <!-- ekf -->
+        <node pkg="robot_localization" type="ekf_localization_node" name="ekf_localization"> 
+            <remap from="odometry/filtered" to="odom" />
+            <rosparam command="load" file="$(find robot_launch)/launch/param/ekf/ekf_v2.yaml" />
+            <!-- <rosparam command="load" file="$(find robot_launch)/launch/param/ekf/ekf_template.yaml" /> -->
+        </node> 
+
+    <!-- aruco -->
+    <include file="$(find robot_launch)/launch/aruco/aruco_detect.launch" />
+    
+    
+     
+</launch>

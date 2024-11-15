@@ -1,0 +1,12 @@
+uint16 Cmd_move
+uint16 Initial_speed
+uint16 Line_select
+uint16 BN_FC 
+uint16 Led_FC
+uint16 BT_s_1
+uint16 BT_s_2
+uint16 BT_s_3
+uint16 BT_DC_1
+uint16 BT_DC_2
+uint16 BT_SIE_OUT
+uint16 COI_FC

@@ -1,0 +1,11 @@
+int16 j_waitLaunch
+int16 n_launch
+string t_message
+int8 t_colorLD1
+int8 t_colorLD2
+int8 t_colorCAM
+int8 t_colorMC
+int8 t_colorMain
+int8 t_colorSC
+int8 t_colorOC
+int8 t_colorRFID

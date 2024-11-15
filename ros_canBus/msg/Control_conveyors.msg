@@ -1,0 +1,12 @@
+uint8 No1_mission
+uint8 No1_speed
+uint8 No2_mission
+uint8 No2_speed
+uint8 No3_mission
+uint8 No3_speed
+uint8 No4_mission
+uint8 No4_speed
+uint8 No5_mission
+uint8 No5_speed
+uint8 No6_mission
+uint8 No6_speed

@@ -1,0 +1,9 @@
+<launch>
+	<!-- Set parameters -->
+	<param name="frequency_control" value="25.0" />
+	<param name="topicSub_driver1" value="/driver1_respond" />
+	<param name="topicSub_driver2" value="/driver2_respond" />
+	<param name="topicPub_driver1" value="/driver1_filter" />
+	<param name="topicPub_driver2" value="/driver2_filter" />
+	<node pkg="base_pkg" type="filter_topic.py" name="filterTopic_node" output="screen"> </node>
+</launch>

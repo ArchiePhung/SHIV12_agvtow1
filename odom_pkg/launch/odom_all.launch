@@ -1,0 +1,24 @@
+<launch>
+    <!-- Odometry from encoder -->
+    <node pkg="odom_pkg" name="odom_encoder" type="odom_encoder_v2.py" output="screen"/>
+
+    <!-- Odometry from Lidar Loc -->
+    <node pkg="odom_pkg" name="odom_lidarLoc" type="odom_lidarLoc.py" output="screen"/>
+
+    <!-- send odom lidar loc -->
+    <node pkg="odom_pkg" name="encoderLoc" type="send_encoderLoc.py" output="screen"/>
+
+    <!-- Odometry from Rf2O -->
+    <!-- <node pkg="tf2_ros" type="static_transform_publisher" name="base_footprint_to_nanoScan" args="0.483 0.0 0.0 0 0 0 base_link_lidar nanoScan" />
+    <node pkg="rf2o_laser_odometry" type="rf2o_laser_odometry_node" name="rf2o_odometry_lms100" output="screen">
+        <param name="laser_scan_topic" value="/sick_safetyscanners/scan"/>       # topic where the lidar scans are being published
+        <param name="odom_topic" value="/odom_lidar" />              # topic where tu publish the odometry estimations
+        <param name="publish_tf" value="false" />                   # wheter or not to publish the tf::transform (base->odom)
+        <param name="base_frame_id" value="base_link_lidar"/>        # frame_id (tf) of the mobile robot base. A tf transform from the laser_frame to the base_frame is mandatory
+        <param name="odom_frame_id" value="odom_lidar" />          # frame_id (tf) to publish the odometry estimations    
+        <param name="init_pose_from_topic" value="" />              #  /base_pose_ground_truth | (Odom topic) Leave empty to start at point (0,0) 
+        <param name="freq" value="20.0"/>                           # Execution frequency.
+        <param name="verbose" value="true" />                       # verbose
+    </node> -->
+
+</launch>

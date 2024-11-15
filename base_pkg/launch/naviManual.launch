@@ -1,0 +1,4 @@
+<launch>
+	<!-- Set parameters -->
+	<node pkg="base_pkg" type="naviManual.py" name="navi_manual" output="screen"> </node>
+</launch>

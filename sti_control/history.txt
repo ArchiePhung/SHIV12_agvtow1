@@ -1,0 +1,371 @@
+date: 20/05/2020
+
+A,
+	1, Phiên bản đang dùng: 
+		File:
+			sti_client_v2.py
+			sti_control_v2.py
+			sti_navigation_v2.py
+		Discription:
+			Go point to point
+			
+	2, Phiên bản cũ:
+		File:
+			navigation_v3.py
+			udp_cleint.py
+		Discription:
+			load points went start.
+			have name point: ID
+		
+		Nội dụng dự định: 
+			Đưa source code vào các class -> quản lý tốt hơn
+	3, Phiên bản phát triền:
+		File:
+			udp_client.py
+			sti_control.py
+			navigation_v4.py
+15/06:
+	1, Change (add) content frame info: modify code sti_client_v2 + Client_respond.msg
+	2, get coordinate of point end and near end when parking to:
+		- Calculator distand backward after parking.
+		- compare coordinate current with point end to enable moving follow list point(receive form server)
+
+
+B, Vấn đề:
+		1, Tạo quy trình thông suốt từ :
+											  | --> Mission (MIS) (thực hiện thao tác kéo, còi, ..)
+			Server AGV Control  -> udp_cleint | --> navigation -> move_base
+				(SAC)                  (UC)           (NAV)        (MOV )
+		2, Nguyên tắc:
+			1, KIỂM TRA:
+				"SAC" : Nhận thông tin từ "UC" về : 
+					1, MOV sẵn sàng ?
+					2, MIS sẵn sàng ?
+			2, "UC" báo "SAC" là all sẵn sàng --> gửi lệnh.
+			3, "UC" nhận lệnh 
+
+			"NAV" --> "UC":
+			Thông tin: 
+				1, trạng thái di chuyển 
+					status = 
+					"-1": sẵn sàng di chuyển
+					" 0": chưa sẵn sàng
+					" 1": đang chạy 
+				2, vị trí hiện tại của AGV: 
+					x
+					y
+					z
+				3. Báo đã hoàn thành đến đích chưa.
+					completed
+				4, Lỗi:
+					error
+
+		3, Điều khiển bằng tay ps2 + chế độ an toàn 
+		4, 
+	Khi gặp lỗi ko thể tự khắc phục:
+		1, AGV ko đến được đích --> yêu cầu lại goal 2 lần vẫn ko đc
+			---> AGV dừng + reset toàn bộ
+			Vấn đề khởi động lại như nào:
+				"udp" --> "NAV": ngừng AGV (enable = 0) -> sau đó request lại để bắt đầu chu trình mới.
+		2, Lỗi động cơ do ai phát hiện
+
+#------ Navigation <--> move_base
+	Test cac truong hop:
+		1, Khởi động -> nhận request_move -> gửi điểm cho move_base
+		2, Thay đổi danh sách gửi xuống khi đang đi
+		3, Thay đổi điềm đích cuối khi đang đi.
+		4, Bật tắt enable khi đang đi và dừng.
+		5, Tạo lỗi ko đến được đích.
+		6, Tạo lỗi ko update đc điểm mới khi danh sách điểm thay đổi.
+		7, Tạo lỗi đến sai điểm.
+		8, đang chạy b thường -> status_goal = 0 (ko sẵn sàng chạy)
+		9, chuyển đổi giữa 2 chế độ "tự động"(gửi điểm) + "bằng tay"(đk tay ps2)
+
+#----- udp server <--> udp client:
+	
+SETUP:
+	1, Lái AGV ra vị trí nhất định-> tạo độ AGV hiện trên màn hình setup.
+	2, Lấy điểm : (theo dạng đã mã hóa: trục x,y(m) nhân 1000 -> x,y(mm) và hướng dạnh 360 độ nhân 100)
+		1, Tên điểm (ID).
+		2, Tọa độ x,y.
+		3, Hướng z cho vị trí cuối.
+		4, Nhiệm vụ tại điểm đó.
+
+	3, Lưu điểm.
+
+OPERATE: 
+	nhận liên tục nhiệm vụ. -> phát hiện nhiệm vụ thay đổi -> thực hiện
+	AGV tự thực hiện lần lượt:
+		1, Nhận danh sách nhiệm vụ
+		2, Thực hiện lệnh trước khi di chuyển.
+		3, Truyền list 5 điểm.
+		4, Đợi hoàn thành từ navigation.
+		5, Thực hiện nhiệm vụ sau khi di chuyển thành công.
+		6, Stop - reset agv - wait new mission.
+
+16/06/2020:
+	- Problem when startup AGV. all nodes must wait still all topic subscribe have data -> RUN
+	- Regulation (status + error) for all nodes.
+	- 
+PROBLEM:		
+	1, Phenomena: khi AGV mở nguồn -> server chưa biết agv đang ở đâu
+	1, Solution:  server điều agv đến 1 điểm bất kì.
+	#--------------------------------------------------------------
+	2, Phenomena: Lỗi khi thực hiện nhiệm vụ đầu -> agv dừng.
+	2, Solution: 
+		1, agv dừng thao tác nhiệm vụ -> báo lỗi cho server.
+		2, Người vận hành đến phát hiện và xóa lỗi trên agv.
+		3, 
+	#--------------------------------------------------------------
+	3, Phenomena: Lỗi khi thực hiện nhiệm vụ sau.
+	3, Solution:
+		1, agv dừng thao tác nhiệm vụ -> báo lỗi cho server.
+		2, Người vận hành đến phát hiện và xóa lỗi trên agv.
+		3, 
+	#--------------------------------------------------------------
+	4, Phenomena: Lỗi khi di chuyển.- Không thể đến đích.
+	4, Solution:
+		nguyên nhân có thế do vật cản.
+		1, AGV dừng
+		2, Công nhân đến loại bỏ vật cản.
+		3, reset lỗi và tiếp tục quy trình.
+	#--------------------------------------------------------------
+	5, Phenomena: - Lỗi cảm biến: camera, lidar, động cơ mất kết nối....
+	5, Solution:
+		1, AGV dừng
+		2, server hủy lệnh.
+	#--------------------------------------------------------------
+	6, Phenomena: trường hợp agv đang đi -> nhấn EMC (tạm dừng) -> chạy tiếp.
+	6, Solution:
+	#--------------------------------------------------------------
+	7, Phenomena:
+	7, Solution:
+	#--------------------------------------------------------------
+	8, Phenomena:
+	8, Solution:
+	#--------------------------------------------------------------
+	9, Phenomena:
+	9, Solution:
+	#--------------------------------------------------------------
+
+AGV có 3 chế độ hoạt động:
+	1, setup map.
+	2, chạy tay = ps2.
+	3, chạy tự động.
+
+Trạng thái của AGV <--> server:
+	1, Mất kết nối.
+	2, Dừng 
+	3, Đang chạy.
+	5, Lỗi.
+
+1, xây dựng lại frame command 
+2, xây dựng lại quy trình.
+3, test nhận danh sách nhiệm vụ.
+4, tạo API cho dữ liệu gửi lên.
+
+
+#---------------------- Point
+	0
+	x: -0.937691090626
+	y: 0.947658942451
+	z: 17823.2558045
+
+	#----------------------
+	1
+	x: -2.29614856251
+	y: 0.853124080373
+	z: 17899.3265267
+
+	#----------------------
+	2
+	x: -2.98350637789
+	y: 0.934681652419
+	z: -17845.842624
+
+	#----------------------
+	3
+	x: -4.14781693757
+	y: 0.908703532932
+	z: 17950.7746284
+	#----------------------
+	4
+	x: -6.1634498263
+	y: 1.32797982017
+	z: 9348.80561562
+	#----------------------
+	9
+	x: -6.10806884671
+	y: 2.02270460947
+	z: 8782.67040159
+
+	#----------------------
+	5
+	x: -7.84123269369
+	y: 1.4109980478
+	z: 9549.79276449
+
+	#----------------------
+	8
+	x: -7.8475571092
+	y: 1.93325418121
+	z: 9082.09750473
+
+	#----------------------
+	6
+	x: -9.36256161962
+	y: 1.2627558665
+	z: 9018.58153335
+	#----------------------
+	7
+	x: -9.39258713428
+	y: 1.94284418349
+	z: 8896.46995135
+
+	#----------------------
+	10
+	x: -6.08227566852
+	y: 0.0736968269709
+	z: 9377.61200592
+	#----------------------
+	11
+	x: -7.51304469549
+	y: 0.0151093691668
+	z: 16641.5711357
+	#----------------------
+	12
+	x: -9.29441063358
+	y: -0.0231175144989
+	z: 8966.31822551
+	#----------------------
+	13
+	x: -9.22142647069
+	y: -1.64799048501
+	z: -275.972690606
+	#----------------------
+	14
+	x: -7.72334987235
+	y: -1.6314631418
+	z: -275.972690606
+
+	#----------------------ok
+	15
+	x: -6.01726917327
+	y: -1.6625724876
+	z: -245.354252512
+
+	#----------------------ok
+	16
+	x: -4.44512501514
+	y: -1.54612645306
+	z: 73.2231321821
+	#----------------------ok
+	17
+	x: -3.30596082041
+	y: -1.57868042575
+	z: 412.78849335
+	#----------------------ok
+	18
+	x: -1.43794009725
+	y: -1.48693149053
+	z: -164.553330524
+
+	#----------------------ok
+	19
+	x: -4.51643367672
+	y: 0.0788847249571
+	z: 8296.24448547
+
+# ------------------------------------- Date: 29/05/2020
+1. nếu AGV đã đền điểm thứ 4 của danh sách. dừng gửi goal - #ok
+2, xử lý lỗi điểm bắt đầu -> xoay xoay do lấy đúng góc. # bỏ
+3. bỏ điểm nếu các điểm thẳng hàng.
+
+
+4, Yêu cầu nếu target ko đổi nhưng vị trí hiện tại của AGV khác với điểm đich -> run.
+5, Target ko đổi -> Danh sách điểm thay đổi -> ko tìm thấy điểm để update vị trí. #ok
+6, Lỗi bỏ điểm.
+7, 
+# ------------------------------------- Date: 01/06/2020
+Mission:
+
+	1, fix bug delay communicate bettwent agv with server traffic control. - # ok
+	2, fix loi update lists points #ok
+	3, thực hiện nhiệm vụ nâng hạ: 1 nag, 2 ha. #ok
+	4, xử lý lỗi điểm bắt đầu -> xoay xoay do phai lấy đúng góc. # bo
+	5, Lỗi đến điểm A rồi nhưng vẫn gửi lại điểm 	A(đúng phải gửi B)-> bỏ điểm B -> AGV dừng và báo hoàn thành quá trình di chuyển.
+
+	, Đi vào điểm có mã aruco.
+
+
+
+#  Error:--------------------------------------------------------------------------------------
+
+#	============================================================================================================ 
+12/06
+[ERROR] [1591956103.269556]: int_to_byte: Val error: 255.9921875
+[ERROR] [1591956103.282145]: int_to_byte: Val error: 255.9921875
+17/06:
+thoi diem update:
+	xong mission roi nhung bang tai van quay.
+	Loi chua reset duoc phan navi ma da gui diem -> ko chay. -> tao quy trinh reset
+	khi target + mission thay doi nhung code chi phat hien mission thay doi.
+
+#	============================================================================================================
+#	============================================================================================================
+#	============================================================================================================
+#	============================================================================================================
+#	============================================================================================================
+List đồ ko vạch cần mang đi:
+ 1. 2 băng tai
+
+512 | -0.00482668647734 | -0.0089195563431
+511 | -0.00482689930148 | -0.00891980174034
+510 | -0.00482670664835 | -0.00891976624066
+509 | -0.00482670664835 | -0.00891976624066
+508 | -0.00482670493392 | -0.00891983170403
+507 | -0.00482670493392 | -0.00891983170403
+506 | -0.00482694289318 | -0.00892020988594 | -0.00143282209343 | 0.99999897351
+505 | -0.00482694289318 | -0.00892020988594 | -0.00143282209343 | 0.99999897351
+504 | -0.00482701264323 | -0.00892020430998
+503 | -0.00482742674262 | -0.00892031664335
+502 | -0.00482742674262 | -0.00892031664335
+501 | -0.00482770128138 | -0.00892054543964
+500 | -0.00482770128138 | -0.00892054543964 | -0.00143312183714 | 0.99999897308
+499 |  | 
+498 |  | 
+497 |  | 
+496 |  | 
+495 |  | 
+494 |  | 
+493 |  | 
+492 |  | 
+491 |  | 
+490 |  | 
+
+
+let src = cv.imread('canvasInput');
+let dst = cv.Mat.zeros(src.rows, src.cols, cv.CV_8UC3);
+cv.cvtColor(src, src, cv.COLOR_RGBA2GRAY, 0);
+cv.threshold(src, src, 100, 200, cv.THRESH_BINARY);
+let contours = new cv.MatVector();
+let hierarchy = new cv.Mat();
+let poly = new cv.MatVector();
+cv.findContours(src, contours, hierarchy, cv.RETR_CCOMP, cv.CHAIN_APPROX_SIMPLE);
+// approximates each contour to polygon
+for (let i = 0; i < contours.size(); ++i) {
+    let tmp = new cv.Mat();
+    let cnt = contours.get(i);
+    // You can try more different parameters
+    cv.approxPolyDP(cnt, tmp, 3, true);
+    poly.push_back(tmp);
+    cnt.delete(); tmp.delete();
+}
+// draw contours with random Scalar
+for (let i = 0; i < contours.size(); ++i) {
+    let color = new cv.Scalar(Math.round(Math.random() * 255), Math.round(Math.random() * 255),
+                              Math.round(Math.random() * 255));
+    cv.drawContours(dst, poly, i, color, 1, 8, hierarchy, 0);
+}
+cv.imshow('canvasOutput', dst);
+src.delete(); dst.delete(); hierarchy.delete(); contours.delete(); poly.delete();

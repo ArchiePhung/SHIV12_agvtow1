@@ -1,0 +1,3 @@
+<launch>
+    <node pkg="odom_pkg" name="pose_lidar" type="odom_lidar" output="screen"/>
+</launch>

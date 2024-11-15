@@ -1,0 +1,10 @@
+<launch>
+    <!-- camera -->
+        <!-- <node pkg="tf2_ros" type="static_transform_publisher" name="static_tf_base_d435" args="0.4854 0.033 0.112 0 0 0 base_footprint d435_link" /> -->
+        
+        <!-- SICK lms100-->
+        <node pkg="tf2_ros" type="static_transform_publisher" name="base_footprint_to_laser_lms100" args="0.3295 -0.264 0.237 -0.76 0 3.141592653 base_footprint laser_lms100" /> 
+
+        <!-- SICK tim551  0.78539816339 -->
+        <node pkg="tf2_ros" type="static_transform_publisher" name="base_footprint_to_laser_tim551" args="-0.360 0.238 0.237 2.34 0 0 base_footprint laser_tim551" />
+</launch>

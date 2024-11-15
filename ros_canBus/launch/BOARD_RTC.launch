@@ -1,0 +1,7 @@
+<launch>
+    <node pkg="rosserial_python" name="BOARD_RTC_node" type="serial_node.py" output="screen">
+        <param name="port" value="/dev/stibase_rtc" />
+        <param name="baud" value="57600" /> 
+    </node>
+
+</launch>

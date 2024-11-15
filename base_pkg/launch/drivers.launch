@@ -1,0 +1,23 @@
+<launch>
+	<!-- Set parameters -->
+	<param name="port" value="/dev/stibase_motor" />
+	<param name="baudrate" value="57600" />
+	<param name="maxRPM" value="3800" />
+
+	<param name="topicSafety" value="/safety" />
+
+	<param name="id_1" value="1" />
+	<param name="topicSub_1" value="/driver1_query" />
+	<param name="topicPub_1" value="/driver1_respond" />
+	<param name="revert_1" value="0" />
+
+	<param name="id_2" value="2" />
+	<param name="topicSub_2" value="/driver2_query" />
+	<param name="topicPub_2" value="/driver2_respond" />
+	<param name="revert_2" value="1" />
+
+	<param name="id_loadcell" value="3" />
+
+	<!-- <node pkg="base_pkg" type="driverControlAll.py" name="driver_node" output="screen"> </node> -->
+	<node pkg="base_pkg" type="driverControl_ELD2.py" name="driverELD2_node" output="screen"> </node>
+</launch>

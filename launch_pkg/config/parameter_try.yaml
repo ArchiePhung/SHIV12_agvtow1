@@ -1,0 +1,80 @@
+#------ PORT PHYSICAL ------#
+scanmap: 0
+disable_oc: 1
+#------ PORT PHYSICAL ------#
+ip_udp      : 10.10.2.97
+port_lms100 : 192.168.10.10
+port_tim551 : 192.168.100.100
+port_camera : /017322072873
+port_main   : stibase_main822 # shiv34 
+port_mc     : stibase_mc821
+port_sc     : stibase_sc821
+port_oc     : stibase_oc82
+port_hc     : stibase_hc82
+port_hmi    : stibase_hmi
+port_magLine : stibase_magLine
+port_driverLeft : ttyS0
+port_driverRight: ttyS1
+
+#------ File launch Path------#
+path_firstWork  : /home/amr1-l300/catkin_ws/src/launch_pkg/launch/kickoff/firstWork.launch # clean log.
+path_checkPort  : /home/amr1-l300/catkin_ws/src/launch_pkg/launch/kickoff/checkPhysical.launch
+path_reconnectAll: /home/amr1-l300/catkin_ws/src/launch_pkg/launch/launch_try.launch
+# -- 
+path_main       : /home/amr1-l300/catkin_ws/src/launch_pkg/launch/board/POWER.launch
+path_sc         : /home/amr1-l300/catkin_ws/src/launch_pkg/launch/board/SC.launch
+
+path_driverLeft : /home/amr1-l300/catkin_ws/src/base_pkg/launch/driverLeft.launch
+path_driverRight: /home/amr1-l300/catkin_ws/src/base_pkg/launch/driverRight.launch
+
+path_tf         : /home/amr1-l300/catkin_ws/src/launch_pkg/launch/tf/tf_full.launch
+path_lidarFull  : /home/amr1-l300/catkin_ws/src/launch_pkg/launch/lidar/lidar_full.launch
+# -- 
+path_kinematic  : /home/amr1-l300/catkin_ws/src/base_pkg/launch/kinematic.launch
+path_imuFilter  : /home/amr1-l300/catkin_ws/src/launch_pkg/launch/imu/imuBno_filter.launch
+
+path_odomEncoder: /home/amr1-l300/catkin_ws/src/odom_pkg/launch/odom_encoder.launch
+path_odomHector : /home/amr1-l300/catkin_ws/src/launch_pkg/launch/lidar/hector_mapping/hector_odom_v3.launch
+path_poseLidar  : /home/amr1-l300/catkin_ws/src/odom_pkg/launch/pose_lidar.launch
+
+path_safetyZone : /home/amr1-l300/catkin_ws/src/safety_zone/launch/safety_zone.launch
+# -- 
+path_ekf        : /home/amr1-l300/catkin_ws/src/launch_pkg/launch/ekf/ekf.launch
+path_mapServer  : /home/amr1-l300/catkin_ws/src/launch_pkg/launch/2DLandmark/map_server.launch
+path_amcl       : /home/amr1-l300/catkin_ws/src/launch_pkg/launch/2DLandmark/amcl_v2.launch
+# --
+path_posePublisher: /home/amr1-l300/catkin_ws/src/pose_publisher/launch/robot_pose.launch
+# -- Setpose
+poseRobotTag      : /home/amr1-l300/catkin_ws/src/sti_module/launch/poseRobotTag.launch
+# -- Parking
+path_parking      : /home/amr1-l300/catkin_ws/src/sti_module/launch/parkingControl.launch
+# -- Detect Tag
+apriltag_setpose  : /home/stivietnam/catkin_ws/src/launch_pkg/launch/aruco/apriltag_d435_setpose.launch
+apriltag_parking  : /home/stivietnam/catkin_ws/src/launch_pkg/launch/aruco/apriltag_d435_parking.launch
+
+# path_navigation : /home/amr1-l300/catkin_ws/src/
+#------ Time check lost connect ------#
+timeLost_main: 3
+timeLost_mc: 3
+timeLost_sc: 3
+timeLost_oc: 3
+timeLost_hc: 3
+timeLost_camera: 3
+timeLost_lidar: 3
+timeLost_hmi: 3
+timeLost_magLine: 3
+timeLost_parking: 20
+timeLost_485: 3
+  
+#------ Time wait after connect ------#
+timeWait_main: 20
+timeWait_mc: 20
+timeWait_sc: 20
+timeWait_oc: 20
+timeWait_hc: 20
+timeWait_camera: 20
+timeWait_lidar: 20
+timeWait_hmi: 20
+timeWait_magLine: 20
+timeWait_parking: 20
+timeWait_485: 20

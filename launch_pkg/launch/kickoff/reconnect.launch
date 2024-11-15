@@ -1,0 +1,3 @@
+<launch>
+	<node pkg="launch_pkg" name="reconnectMajority" type="reconnectMajority.py" output="screen"> </node>
+</launch>

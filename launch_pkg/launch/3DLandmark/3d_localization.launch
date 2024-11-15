@@ -1,0 +1,41 @@
+<launch>
+
+	 <!-- _________________LOCALIZATION__________________  -->
+
+    <include file="$(find robot_launch)/launch/3DLandmark/rtabmap_core_v2.launch">
+
+        <!-- Choose visualization -->
+        <arg name="rtabmapviz"         value="false"/>
+        <arg name="rviz"               value="false"/>
+        <arg name="tag_MarkerDetection" value="false"/>
+
+        <!-- Localization-only mode -->
+        <arg name="localization"       value="true"/>
+        <arg name="rtabmap_args"       value=""/>
+
+        <!-- Corresponding config files -->
+        <arg name="frame_id"           value="base_footprint"/>
+        <arg name="map_frame_id"       value="map"/>
+        
+        <arg name="database_path"      value="~/.ros/rtabmap.db"/>
+        <arg name="queue_size"         value="200"/>
+        <arg name="publish_tf_map"     value="true"/>
+
+        <!-- RGB-D related topics -->
+        <!-- <arg name="rgb_topic"          default="/kinect360/rgb/image_rect_color" />
+        <arg name="depth_topic"        default="/kinect360/depth_registered/image_raw" />
+        <arg name="camera_info_topic"  default="/kinect360/rgb/camera_info" /> -->
+        
+        <arg name="rgb_topic"          value="/d435/color/image_raw"/>
+        <arg name="depth_topic"        value="/d435/aligned_depth_to_color/image_raw"/>
+        <arg name="camera_info_topic"  value="/d435/color/camera_info"/>
+        
+        <!-- scan 2D, 3D -->
+        <arg name="subscribe_scan"          value="true"/>
+        <arg name="scan_topic"              value="/scan"/>
+
+        <arg name="visual_odometry"    value="false"/> 
+        <arg name="odom_topic"         value="/odom"/> <!-- de : value="odom" -> error -->
+
+    </include>
+</launch>

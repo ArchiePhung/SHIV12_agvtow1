@@ -1,0 +1,8 @@
+float32 voltages 
+float32 voltages_analog
+float32 charge_current
+float32 charge_analog
+bool stsButton_reset
+bool stsButton_power
+bool EMC_status
+int16 CAN_status

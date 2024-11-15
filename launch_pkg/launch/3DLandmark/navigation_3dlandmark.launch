@@ -1,0 +1,17 @@
+<launch>
+    <!--bringup-->
+    <!-- <include file="$(find robot_launch)/launch/3DLandmark/bringup_trienlam.launch"/> -->
+
+    <!--navigation-->
+    <!-- <include file="$(find robot_launch)/launch/3DLandmark/localization.launch"/> -->
+    <include file="$(find robot_launch)/launch/test/test_localization.launch"/>
+
+    <include file="$(find robot_launch)/launch/move_base/move_base_2wd.launch" /> 
+
+    <!--comWinRos-->
+    <node name="robot_pose" pkg="robot_pose_publisher" type="robot_pose_publisher" output="screen"/>
+    <!-- <include  file="$(find dynamic_sti)/launch/comWin_v4.launch"/> -->
+
+    
+</launch>
+

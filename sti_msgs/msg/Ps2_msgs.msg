@@ -1,0 +1,16 @@
+std_msgs/Bool start
+std_msgs/Bool select 
+std_msgs/Bool up
+std_msgs/Bool right
+std_msgs/Bool left 
+std_msgs/Bool down 
+std_msgs/Bool triangle
+std_msgs/Bool circle 
+std_msgs/Bool cross 
+std_msgs/Bool square 
+std_msgs/Bool l1
+std_msgs/Bool l2
+std_msgs/Bool l3
+std_msgs/Bool r1
+std_msgs/Bool r2
+std_msgs/Bool r3

@@ -1,0 +1,2 @@
+int16 RBG1
+int16 RBG2

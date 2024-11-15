@@ -1,0 +1,34 @@
+<launch>
+      <!-- vung lidar  -->
+          <!-- camera -->
+       <!-- <node pkg="tf2_ros" type="static_transform_publisher" name="static_tf_base_d435"       args="0.4854 0.033 0.112 0 0 0 base_footprint d435_link" /> -->
+      <!-- lidar -->
+      <!-- SICK tim551 -->
+      <node pkg="tf2_ros" type="static_transform_publisher" name="base_footprint_to_laser_tim551" args="-0.36245 -0.26255 0.237 -2.35619449019 0 0 base_footprint laser_tim551" />
+      <!-- SICK lms100-->
+      <node pkg="tf2_ros" type="static_transform_publisher" name="base_footprint_to_laser_lms100" args="0.3625 0.2625 0.237 0.78539816339 0 0 base_footprint laser_lms100" /> 
+
+      <include file="$(find robot_launch)/launch/lidar/lms100.launch" > 
+            <arg name="hostname"            value="192.168.10.10"/>  
+            <arg name="frame_id"            value="laser_lms100"/>
+            <arg name="topic_scan"          value="/scan_lms100"/>
+      </include>
+
+      <include file="$(find robot_launch)/launch/lidar/tim551.launch" > 
+            <arg name="hostname"            value="192.168.100.100"/>  
+            <arg name="frame_id"            value="laser_tim551"/>
+            <arg name="topic_scan"          value="/scan_tim551"/>
+      </include>
+
+      <!-- multi_lidar -->
+      <include file="$(find robot_launch)/launch/lidar/laserscan_multi_merger.launch" > 
+            <arg name="destination_frame"   value="base_footprint"/>
+            <arg name="scan_out"            value="/scan"/>
+            <arg name="scan1_in"            value="/scan_lms100" />
+            <arg name="scan2_in"            value="/scan_tim551" />
+      </include>
+
+      <!-- vung 3d d435 - 8% CPU -->
+      <!-- <include file="$(find safe_pcl)/launch/zone3d.launch" /> -->
+            
+</launch>

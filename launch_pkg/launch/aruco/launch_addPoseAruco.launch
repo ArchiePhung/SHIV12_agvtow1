@@ -1,0 +1,3 @@
+<launch>
+	<node pkg="launch_pkg"  name="launch_addPoseAruco" type="launch_addPoseAruco.py" output="screen" > </node>
+</launch>

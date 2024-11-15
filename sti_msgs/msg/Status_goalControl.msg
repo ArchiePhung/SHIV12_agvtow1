@@ -1,0 +1,3 @@
+int16 status_goal
+int16 check_received_goal
+float32 distance_goal

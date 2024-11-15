@@ -1,0 +1,20 @@
+<launch>
+	<!-- Filter  -->
+	<include file="$(find base_pkg)/launch/filterTopic.launch" />
+
+	<!-- kinematic -->
+	<param name="wheel_circumference" value="0.47036" /> <!-- 0.47 -->
+	<param name="transmission_ratio" value="30" />
+	<param name="distanceBetwentWheels" value="0.562" /> <!-- 0.538 -->
+	<param name="frequency_control" value="10.0" />
+	<param name="linear_max" value="1.0" />
+	<param name="angular_max" value="0.5" />
+	<param name="max_rpm" value="3800" />
+	<param name="topicRespond_driverLeft" value="/driver1_filter" />  <!-- "/driver1_respond" -->
+	<param name="topicRespond_driverRight" value="/driver2_filter" /> <!-- "/driver2_respond" -->
+	<param name="topicControl_driverLeft" value="/driver1_query" />
+	<param name="topicControl_driverRight" value="/driver2_query" />
+	<param name="topicControl_vel" value="/cmd_vel" />
+	<param name="frame_id" value="base_footprint" />
+	<node pkg="base_pkg" type="kinematic_v2.py" name="kinematic_node" output="screen">	</node>
+</launch>

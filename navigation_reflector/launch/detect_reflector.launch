@@ -1,0 +1,4 @@
+<launch>
+	<!-- <node pkg="navigation_reflector" name="detect_reflector" type="detect_reflector_nanoScan.py" output="screen" > </node> -->
+	<node pkg="navigation_reflector" name="detect_reflector" type="detect_reflector.py" output="screen" > </node>
+</launch>

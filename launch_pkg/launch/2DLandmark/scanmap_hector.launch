@@ -1,0 +1,12 @@
+<launch>
+    <!--bringup-->
+    <include file="$(find robot_launch)/launch/2DLandmark/2d_bringup_trienlam.launch"/>
+    <!--mapping-->
+    <!-- <include file="$(find robot_launch)/launch/2DLandmark/2d_rtabmap.launch"/> -->
+    <!-- <include file="$(find robot_launch)/launch/2DLandmark/gmapping.launch"/> -->\
+    <include file="$(find robot_launch)/launch/lidar/hector_mapping/hector_mapping.launch"/>
+    
+    <!-- rosrun map_server map_saver -f /home/stivietnam/catkin_ws/src/robot_launch/launch/map/map2d -->
+    <!-- scp stivietnam@192.168.1.21:~/catkin_ws/src/robot_launch/launch/map/map2d.pgm . -->
+
+</launch>

@@ -1,0 +1,4 @@
+<launch>
+	<include file="$(find base_pkg)/launch/driverLeft.launch" />
+	<include file="$(find base_pkg)/launch/driverRight.launch" />
+</launch>

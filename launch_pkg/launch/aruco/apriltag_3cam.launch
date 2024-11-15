@@ -1,0 +1,10 @@
+<launch>
+
+  <!-- <include file="$(find robot_launch)/launch/camera/D435.launch"/> -->
+  <include file="$(find robot_launch)/launch/camera/logi.launch"/>
+
+  <!-- <include file="$(find robot_launch)/launch/aruco/apriltag_d435.launch"/> -->
+  <include file="$(find robot_launch)/launch/aruco/apriltag_logi_trai.launch"/>
+  <include file="$(find robot_launch)/launch/aruco/apriltag_logi_phai.launch"/>
+
+</launch>

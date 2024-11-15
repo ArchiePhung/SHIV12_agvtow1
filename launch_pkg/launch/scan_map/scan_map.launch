@@ -1,0 +1,4 @@
+<launch>
+	<rosparam command="load" file="$(find launch_pkg)/config/parameter.yaml" />
+	<node pkg="launch_pkg"  name="launch_mapping" type="launch_mapping.py" output="screen" > </node>
+</launch>

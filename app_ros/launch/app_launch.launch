@@ -1,0 +1,4 @@
+<launch>
+	<!-- Set parameters-->
+	<node pkg="app_ros" type="app_launch.py" name="appLaunch_node" output="screen"> </node>
+</launch>

@@ -1,0 +1,8 @@
+<launch>
+    <node pkg="pose_publisher" name="robot_pose" type="robot_pose.py" >
+    </node>
+
+<!--     <node pkg="pose_publisher" name="convert_odom_sickodom105" type="convert_odom_sickodom105.py" >
+    </node> -->
+
+</launch>

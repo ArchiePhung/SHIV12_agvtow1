@@ -1,0 +1,6 @@
+<launch>
+	<!-- Khởi động tf static transform publisher -->
+    <node pkg="tf2_ros" type="static_transform_publisher" name="" args="0 0 0 0 0 0 map_reflector _" />
+
+	<node pkg="navigation_reflector" name="show_mapReflector" type="show_mapReflector.py" output="screen" > </node>
+</launch>

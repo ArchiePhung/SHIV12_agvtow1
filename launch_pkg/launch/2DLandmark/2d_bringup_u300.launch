@@ -1,0 +1,52 @@
+<launch>
+
+	<!-- SENSOR -->
+        
+        <!-- <include file="$(find robot_launch)/launch/camera/D435.launch" /> -->
+
+        <!-- lidar lms100 + tim551 -->
+        <include file="$(find robot_launch)/launch/lidar/lms100_tim551.launch" />
+    
+        <!-- encoder -->
+		<include file="$(find robot_launch)/launch/base/MC.launch" />
+        <include file="$(find robot_launch)/launch/base/SC.launch" />
+
+        <!-- imu -->
+        <include file="$(find robot_launch)/launch/imu/imu_bno055.launch" />
+
+    <!-- tf_config trienlam -->
+        <include file="$(find robot_launch)/launch/config/tf_config_u300.launch" />
+        
+    <!-- ODOM -->
+        <!-- odom rf2o -->
+        <!-- <include file="$(find robot_launch)/launch/lidar/rf2o/rf20_odom.launch"/> -->
+
+        <!-- encoder -->
+        <!-- <node pkg="robot_setup_tf_tutorial" name="odom_encoder" type="odom_encoder" output="screen"/> -->
+        <include file="$(find robot_setup_tf_tutorial)/launch/odom_encoder.launch"/>
+        
+
+        <!-- T265 tracking -->
+        <!-- <node pkg="robot_setup_tf_tutorial" name="robot_tf_odom_v7" type="odom_v7"/> -->
+        <!-- <node pkg="vector_convert" name="vector_t265_v2" type="vector_t265_v2" output="screen"/> -->
+        
+
+        <!-- hector -->
+        <include file="$(find robot_launch)/launch/lidar/hector_mapping/hector_odom_v3.launch"/>
+        <!-- <node pkg="robot_setup_tf_tutorial" name="conver_lidar" type="odom_lidar" output="screen"/>  -->
+        <include file="$(find robot_setup_tf_tutorial)/launch/conver_lidar.launch"/>
+        
+
+        <!-- ekf -->
+        <include file="$(find robot_launch)/launch/ekf/ekf.launch"/>
+        <!-- <include file="$(find robot_launch)/launch/ekf/robot_pose_ekf.launch"/> -->
+
+    <!-- apriltag -->
+        <!-- <include file="$(find robot_launch)/launch/aruco/apriltag_d435.launch" /> -->
+    
+    <!-- detector leg -->
+        <!-- <include file="$(find robot_launch)/launch/detector/detec_leg_lms100.launch" />
+        <include file="$(find robot_launch)/launch/detector/detec_leg_tim551.launch" /> -->
+
+     
+</launch>

@@ -1,0 +1,3 @@
+<launch>
+	<node pkg="sti_control" name="debugHCv2" type="debugHCv2.py" output="screen"> </node>
+</launch>

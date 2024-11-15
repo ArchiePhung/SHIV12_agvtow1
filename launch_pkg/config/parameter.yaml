@@ -1,0 +1,112 @@
+#------ PORT PHYSICAL ------#
+scanmap   : 0
+disable_oc: 0
+
+#------ PORT PHYSICAL ------#
+port_board   : stibase_rtc # shiv34 
+port_driverLeft   : tty
+port_driverRight  : stibase_diverRight
+port_imu     : stibase_imu
+port_camera  : /926522070077
+port_lms100  : 192.168.10.10
+port_tim551  : 192.168.100.100
+port_lidar   : 192.168.100.10
+port_ipClient: 10.10.2.9
+card_wifi    : wlp3s0
+port_motor  : stibase_motor
+
+#------ File launch Path------#
+#- 1 -
+path_firstWork    : /home/stivietnam/catkin_ws/src/launch_pkg/launch/kickoff/firstWork.launch # clean log.
+#- 2 -
+path_checkPort    : /home/stivietnam/catkin_ws/src/launch_pkg/launch/kickoff/checkPhysical.launch
+#- 3 -
+path_reconnectAll : /home/stivietnam/catkin_ws/src/launch_pkg/launch/kickoff/reconnect.launch
+#- 4 - open ros serial to board rtc
+path_board        : /home/stivietnam/catkin_ws/src/ros_canBus/launch/BOARD_RTC.launch
+#- 5 - pub status of main, hc, cpd1, cpd2 board to ROS + recive request main, hc, cpd to board rtc
+path_convertCAN   : /home/stivietnam/catkin_ws/src/ros_canBus/launch/convertCAN_ROS.launch
+#- 6 - magline
+path_magLine      : /home/stivietnam/catkin_ws/src/sti_control/launch/stiMagneticLine.launch
+#- 7 - 
+path_drivers      : /home/stivietnam/catkin_ws/src/base_pkg/launch/drivers.launch
+#- 9 -
+path_kinematic    : /home/stivietnam/catkin_ws/src/base_pkg/launch/kinematic.launch
+#- 10 -
+path_tfFull       : /home/stivietnam/catkin_ws/src/launch_pkg/launch/tf/tf_full.launch
+# - lidar loc
+path_lidarLOC     : /home/stivietnam/catkin_ws/src/sick_lidar_localization/launch/sick_lidar_localization.launch
+#- 13 -
+path_camera       : /home/stivietnam/catkin_ws/src/launch_pkg/launch/camera/D435.launch
+#- 14 -
+path_lidarFull    : /home/stivietnam/catkin_ws/src/sick_safetyscanners/launch/sick_safetyscanners.launch
+# -
+path_odomEncoder  : /home/stivietnam/catkin_ws/src/odom_pkg/launch/odom_encoder.launch
+path_odomHector   : /home/stivietnam/catkin_ws/src/launch_pkg/launch/lidar/hector_mapping/hector_odom_v3.launch
+path_poseLidar    : /home/stivietnam/catkin_ws/src/odom_pkg/launch/pose_lidar.launch
+path_rf2oOdom     : /home/stivietnam/catkin_ws/src/rf2o_laser_odometry/launch/rf2o_laser_odometry.launch
+# -- 
+path_ekf          : /home/stivietnam/catkin_ws/src/launch_pkg/launch/ekf/ekf.launch
+path_mapServer    : /home/stivietnam/catkin_ws/src/launch_pkg/launch/2DLandmark/map_server.launch
+path_amcl         : /home/stivietnam/catkin_ws/src/launch_pkg/launch/2DLandmark/amcl_v2.launch
+# -- 
+# path_posePublisher: /home/stivietnam/catkin_ws/src/sick_lidar_localization/launch/robotPose_lidarLOC.launch
+path_posePublisher: /home/stivietnam/catkin_ws/src/pose_publisher/launch/robot_pose.launch
+# --
+path_setPose      : /home/stivietnam/catkin_ws/src/sti_module/launch/poseRobotTag.launch
+path_parking      : /home/stivietnam/catkin_ws/src/sti_module/launch/parkingControl.launch
+path_apriltag     : /home/stivietnam/catkin_ws/src/launch_pkg/launch/aruco/launch_apriltag.launch
+# -
+path_safetyZone   : /home/stivietnam/catkin_ws/src/safety_zone/launch/safety_zone.launch
+# -- 
+path_navigation   : /home/stivietnam/catkin_ws/src/sti_module/launch/goalControlDemo.launch
+path_client       : /home/stivietnam/catkin_ws/src/sti_control/launch/stiClient.launch
+path_stiControl   : /home/stivietnam/catkin_ws/src/sti_control/launch/stiControl.launch
+path_debug        : /home/stivietnam/catkin_ws/src/sti_control/launch/stiDebug.launch
+path_webconsole   : /home/stivietnam/catkin_ws/src/sti_webconsole/launch/sti_webconsole.launch
+# -- khong bat luon.
+path_checkShelves : /home/stivietnam/catkin_ws/src/check_shelves/launch/check_shelves.launch # check ke
+
+# -- Detect Tag
+path_detectTag    : /home/stivietnam/catkin_ws/src/launch_pkg/launch/aruco/apriltag_d435_all.launch
+path_tagSetpose   : /home/stivietnam/catkin_ws/src/launch_pkg/launch/aruco/apriltag_d435_setpose.launch
+path_tagParking   : /home/stivietnam/catkin_ws/src/launch_pkg/launch/aruco/apriltag_d435_parking.launch
+path_zone3d       : /home/stivietnam/catkin_ws/src/safe_pcl/launch/zone3d.launch
+
+path_cartographer : /home/stivietnam/catkin_ws/src/launch_pkg/launch/cartogepher/cartographer.launch
+
+# -- 
+path_ApriAddAruco : /home/stivietnam/catkin_ws/src/launch_pkg/launch/aruco/apriltag_d435_addPoseAruco.launch
+
+# -- add Pose Aruco
+path_savePoseAruco: /home/stivietnam/catkin_ws/src/sti_module/launch/getPoseTag_manual.launch
+linkFile_saveTag  : /home/stivietnam/catkin_ws/src/sti_module/data/data_tag.txt
+
+# -- path new
+path_controlLight : /home/stivietnam/catkin_ws/src/launch_pkg/launch/board/LED.launch
+path_sound        : /home/stivietnam/catkin_ws/src/sti_control/launch/stiSound.launch
+
+# -- nuc_info
+path_nucInfo      : /home/stivietnam/catkin_ws/src/sti_control/launch/infoCPU.launch
+
+# -- odom
+path_odomAll      : /home/stivietnam/catkin_ws/src/odom_pkg/launch/odom_all.launch
+
+# -- mc board
+path_mc           : /home/stivietnam/catkin_ws/src/launch_pkg/launch/board/MC.launch
+
+#------ Time check lost connect ------#
+timeLost_board      : 2
+timeLost_motor      : 2
+timeLost_imu        : 1
+timeLost_camera     : 2
+timeLost_lidarFull  : 2
+timeLost_parking    : 10
+
+#------ Time wait after connect ------#
+timeWait_board      : 5
+timeWait_motor      : 5
+timeWait_imu        : 10
+timeWait_camera     : 10
+timeWait_lidarFull  : 5
+timeWait_parking    : 10

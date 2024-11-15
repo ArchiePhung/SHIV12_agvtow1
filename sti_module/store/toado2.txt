@@ -1,0 +1,19 @@
+p1 thuan
+- Translation: [-1.575, 2.442, 0.000]
+- Rotation: in Quaternion [0.000, 0.000, -0.717, 0.697]
+
+# p1 nguoc 
+
+# - Translation: [-1.880, 2.559, 0.000]
+# - Rotation: in Quaternion [0.000, 0.000, -0.024, 1.000]
+
+p2 thuan
+- Translation: [-1.587, 0.022, 0.000]
+- Rotation: in Quaternion [0.000, 0.000, 1.000, -0.004]
+
+# p2_ng
+# - Translation: [-8.084, 0.620, 0.000]
+# - Rotation: in Quaternion [0.000, 0.000, -0.045, 0.999]
+p3 thuan
+- Translation: [-4.942, -0.062, 0.000]
+- Rotation: in Quaternion [0.000, 0.000, 0.999, 0.036]

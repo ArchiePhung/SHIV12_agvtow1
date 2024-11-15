@@ -1,0 +1,3 @@
+<launch>
+	<node pkg="sti_control" name="nextion_comunicate" type="nextion_comunicate.py"> </node>
+</launch>

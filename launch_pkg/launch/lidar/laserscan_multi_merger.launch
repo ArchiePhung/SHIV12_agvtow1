@@ -1,0 +1,24 @@
+<launch>
+
+    <arg name="destination_frame"       default="/base_footprint"/>
+    <arg name="scan_out"                default="/scan"/>
+    <arg name="scan1_in"                default="/scan_a2" />
+    <arg name="scan2_in"                default="/scan_tim551" />
+
+    <node pkg="ira_laser_tools" name="laserscan_multi_merger" type="laserscan_multi_merger" output="screen">
+
+        <param name="destination_frame"       type="string" value="$(arg destination_frame)"/>
+		<param name="cloud_destination_topic" value="/merged_cloud"/>
+		<param name="scan_destination_topic"  type="string" value="$(arg scan_out)"/>
+        <param name="laserscan_topics"        type="string" value="$(arg scan1_in) $(arg scan2_in)" />
+        
+        <param name="angle_min" value="-3.14"/>
+        <param name="angle_max" value="3.14"/>
+        <param name="angle_increment" value="0.0058"/>
+        <param name="scan_time" value="0.0333333"/>
+        <param name="range_min" value="0.05"/>
+        <param name="range_max" value="15.0"/>
+
+	</node>
+</launch>
+

@@ -1,0 +1,15 @@
+<launch>
+      <node pkg="sti_module"  name="makePathByPoint" type="makePathByPoint.py" output="screen" > 
+          <param name="topic_subPose" type="str" value="robotPose_lidarLOC" />
+          <param name="topic_subReq" type="str" value="request_move" />
+          <param name="topic_pubListP" type="str" value="list_pointRequestMove" />
+          <param name="topic_pubPath" type="str" value="path_global" />
+      </node>
+      
+      <node pkg="sti_module"  name="GoalControl" type="goalControlTowingV5.py" output="screen" > 
+          <param name="topic_CmdVel" type="str" value="cmd_vel" />
+          <param name="topic_pose" type="str" value="robotPose_lidarLOC" />
+          <param name="topic_subListP" type="str" value="list_pointRequestMove" />
+          <param name="topic_pubRes" type="str" value="move_respond" />
+      </node>
+</launch>

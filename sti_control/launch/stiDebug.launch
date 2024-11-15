@@ -1,0 +1,3 @@
+<launch>
+	<node pkg="sti_control" name="stiDebug" type="stiDebug.py"> </node>
+</launch>

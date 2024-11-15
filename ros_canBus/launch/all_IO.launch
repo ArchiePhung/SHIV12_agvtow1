@@ -1,0 +1,10 @@
+<launch>
+    <node pkg="rosserial_python" name="BOARD_RTC_node" type="serial_node.py" output="screen">
+        <param name="port" value="/dev/stibase_rtc" />
+        <param name="baud" value="57600" /> 
+    </node>
+
+	<node pkg="ros_canBus" type="convert_ROS_CAN.py" name="convert_CAN_node" output="screen"> </node>
+
+	<node pkg="ros_canBus" type="convertIO_funuc.py" name="convert_IO" output="screen"> </node>
+</launch>

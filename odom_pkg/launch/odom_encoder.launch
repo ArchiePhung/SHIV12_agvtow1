@@ -1,0 +1,12 @@
+<launch>
+    <!-- <node pkg="tf2_ros" type="static_transform_publisher" name="base_base1_linker" args="0 0 0.05 0 0 0 frame_robot frame_robot1" /> -->
+
+    <node pkg="tf2_ros" type="static_transform_publisher" name="base_encoder_linker" args="0 0 0.15 0 0 0 frame_robot1 frame_encoder" />
+
+    <param name="enb_pub_tf" value= "0" />
+    <!-- <param name="enb_pub_tf" value= "0" />
+    <param name="enb_pub_tf" value= "0" />
+    <param name="enb_pub_tf" value= "0" /> -->
+    <param name="child_frame_id" value= "frame_robot1" />
+    <node pkg="odom_pkg" name="odom_encoder" type="encoder_odometry.py" output="screen"/>
+</launch>

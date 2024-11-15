@@ -1,0 +1,13 @@
+bool Working_position1
+bool Working_position2
+bool Working_position3
+bool Working_position4 
+bool Finished_job
+bool Error 
+bool Interlock 
+bool Spare1 
+bool Spare2
+bool CMDENB
+bool FAULT 
+bool BTALM
+bool BUSY

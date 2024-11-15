@@ -1,0 +1,3 @@
+<launch>
+	<node pkg="sti_control" name="nextion_syntheticInfo" type="nextion_syntheticInfo.py" output="screen"> </node>		
+</launch>
